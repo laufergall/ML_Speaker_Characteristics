@@ -1,5 +1,5 @@
 item_number,left_German,right_German,left_English,right_English
-1,sympathisch,unsympathisch,likable,non.likable
+1,sympathisch,unsympathisch,likable,non_likable
 2,unsicher,sicher,unsecure,secure
 3,unattraktiv,attraktiv,unattractive,attractive
 4,verstaendnisvoll,verstaendnislos,sympathetic,unsympathetic
