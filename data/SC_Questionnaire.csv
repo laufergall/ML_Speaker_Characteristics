@@ -1,3 +1,4 @@
+item_number,left_German,right_German,left_English,right_English
 1,sympathisch,unsympathisch,likable,non.likable
 2,unsicher,sicher,unsecure,secure
 3,unattraktiv,attraktiv,unattractive,attractive
@@ -14,9 +15,9 @@
 14,reserviert,gesellig,reserved,sociable
 15,nervoes,entspannt,nervous,relaxed
 16,distanziert,mitfuehlend,distant,affectionate
-17,unterwuerfig,dominant,conformable,dominant
+17,unterwuerfig,dominant,conformable,dominant
 18,affektiert,unaffektiert,affected,unaffected
-19,gefhlskalt,herzlich,cold,hearty
+19,gefuehlskalt,herzlich,cold,hearty
 20,jung,alt,young,old
 21,sachlich,unsachlich,impersonal,personal
 22,aufgeregt,ruhig,excited,calm

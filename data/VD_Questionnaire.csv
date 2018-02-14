@@ -1,3 +1,4 @@
+item_number,left_German,right_German,left_English,right_English
 1,klangvoll,klanglos,sonorous,flat
 2,tief,hoch,low,high
 3,nasal,nicht_nasal,nasal,not_nasal
@@ -15,17 +16,17 @@
 15,unauffaellig,auffaellig,not_remarkable,remarkable
 16,schnell,langsam,quick,slow
 17,kalt,warm,cold,warm
-18,unnatÅrlich,natÅrlich,unnatural,natural
+18,unnatuerlich,natuerlich,unnatural,natural
 19,stabil,zittrig,stable,shaky
 20,unpraezise,praezise,imprecise,precise
-21,brÅchig,fest,brittle,firm
+21,bruechig,fest,brittle,firm
 22,unmelodisch,melodisch,not_melodious,melodious
 23,angespannt,entspannt,tense,relaxed
 24,holprig,gleitend,bumpy,smooth
 25,lang,kurz,long,short
 26,locker,gepresst,lax,pressed
 27,kraftvoll,kraftlos,powerful,powerless
-28,flÅssig,stockend,fluent,halting
+28,fluessig,stockend,fluent,halting
 29,weich,hart,soft,hard
 30,professionell,unprofessionell,professional,unprofessional
 31,betont,unbetont,emphasized,not_emphasized
