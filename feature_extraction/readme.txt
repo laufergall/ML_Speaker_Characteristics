@@ -1,5 +1,5 @@
 - This folder contains necessary code for feaure extraction with OpenSMILE
 - The last version needs to be downloaded and unzipped from https://audeering.com/technology/opensmile/ 
 - I used OpenSMILE version 2.3.0 on Windows 10
-- Need to adjust the paths to Opensmile and to wav files in the python code
+- Need to adjust the paths to OpenSMILE and to wav files in the python code
 - NSC speech features are writen to the csvoutput file in the ../data/extracted_features folder
