@@ -2,7 +2,7 @@
 
 #### Overview
 
-I will be adding my predictive modeling scripts and results to this repository. My research is outlined [here](http://www.qu.tu-berlin.de/?id=lfernandez) and can also be followed in [ResearchGate](https://www.researchgate.net/profile/Laura_Fernandez_Gallardo).
+I will be adding my predictive modeling scripts and results to this repository, as a manner of communicating my ideas combining code, data, and visualizations. My research is outlined [here](http://www.qu.tu-berlin.de/?id=lfernandez) and can also be followed in [ResearchGate](https://www.researchgate.net/profile/Laura_Fernandez_Gallardo).
 
 **No audio** or means to recover the speech recording sessions are provided. Speakers' names are pseudo anonymized.
 
