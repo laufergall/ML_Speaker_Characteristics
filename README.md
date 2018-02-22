@@ -63,7 +63,7 @@ Papers, slides, etc.
 
 
 
-## Under construction! ![img](https://commons.wikimedia.org/wiki/File:CanaleteConstru%C3%A7%C3%A3o.png)
+## Under construction! ![img](http://5.58.88.172/)
 
 Still TODO:
 
