@@ -1,0 +1,8 @@
+
+feature_extraction/smile\.log
+
+classification/\.ipynb_checkpoints/
+
+regression/\.ipynb_checkpoints/
+
+exploratory_analysis/\.ipynb_checkpoints/
