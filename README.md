@@ -63,7 +63,7 @@ Papers, slides, etc.
 
 
 
-## Under construction! ![img](http://5.58.88.172/)
+## Under construction!
 
 Still TODO:
 
