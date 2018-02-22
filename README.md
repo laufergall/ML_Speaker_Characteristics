@@ -4,13 +4,9 @@
 
 The ability to assess speakers' social and personality-related characteristics automatically is desired in multiple novel systems that aim at offering individualized services. Recent developments have led to speech assistants with excellent natural language understanding and synthesis capabilities [1]. However, the characterization of individuals and their intentions and behavior still needs to be improved in order to achieve even more human-like communications.
 
-The goal of this project is to characterize users from their speech signals, i.e. recognizing their traits (confidence, friendliness, competence, etc.) by the sound of their voices and manner of speaking.
-
-<p style="text-align: center;">Can we automatically recognize users' interpersonal traits by their voices?<p>
+The goal of this project is to automatically characterize users from their speech signals, i.e. recognizing their traits (confidence, friendliness, competence, etc.) by the sound of their voices and manner of speaking.
 
 I will be adding my predictive modeling scripts and results to this repository, as a manner of communicating my ideas combining code, data, and visualizations.
-
-This repository **does not contain speakers' sensible data**, complying with the NSC license. All speakers names were pseudonymised. There is no possibility to retrieve the original recorded speech from the provided material.
 
 My research profile is outlined [here](http://www.qu.tu-berlin.de/?id=lfernandez) and my publications can also be followed in [ResearchGate](https://www.researchgate.net/profile/Laura_Fernandez_Gallardo).
 
@@ -23,11 +19,11 @@ I use the speech data from the  [Nautilus Speaker Characterization (NSC) Corpus]
 - clean conversational speech from 300 German speakers and 34-dimensional labels of interpersonal traits (likability, confidence, maturity, etc.) obtained by subjective listening. 
 - freely available for non-commercial research at the [CLARIN](hdl.handle.net/11022/1009-0000-0007-C05F-6) or [ELRA](http://catalog.elra.info/product_info.php?products_id=1318) repositories.
 
-
+This repository **does not contain speakers' sensible data**, complying with the NSC license. All speakers names were pseudonymised. There is no possibility to retrieve the original recorded speech from the provided material.
 
 ## Folder structure
 
-####\data
+#### \data
 
 Contains subjective speaker and voice ratings, extracted speech features (see \feature_extraction) and speakers' i-vectors, and similarity matrices between speakers. 
 
@@ -41,27 +37,27 @@ Scripts for speech feature extraction [3] from the NSC speech files (not on this
 
 Exploring subjective labels.
 
-####\classification
+#### \classification
 
 Evaluating classification techniques for predictive modeling of user traits.
 
-####\regression
+#### \regression
 
 Evaluating regression techniques for predictive modeling of user traits.
 
-####\demo
+#### \demo
 
 Demonstrating the detection of users' interpersonal characteristics by employing the trained classification and regression models.
 
-####\clustering
+#### \clustering
 
 Clustering users by their voices and examining the clusters' dominating characteristics.
 
-####\recommender
+#### \recommender
 
 Given the subjective ratings of speaker likability and attractiveness (preferences for voices), similarities among raters, and similarities among speakers, generate recommended voices.
 
-####\doc
+#### \doc
 
 Papers, slides, etc.
 
