@@ -63,7 +63,9 @@ Papers, slides, etc.
 
 
 
-## TODO
+## Under construction! ![img](https://commons.wikimedia.org/wiki/File:CanaleteConstru%C3%A7%C3%A3o.png)
+
+Still TODO:
 
 * Classification: evaluate on test data
 * regression
