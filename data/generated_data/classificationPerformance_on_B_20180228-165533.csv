@@ -1,0 +1,2 @@
+model,accuracy_on_B,hyperparameters
+GaussianNB,0.6443768996960486,{}
