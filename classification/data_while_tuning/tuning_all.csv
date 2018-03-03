@@ -1,0 +1,25 @@
+best_accs,best_hps,classifiers_names,sel_feats,sel_feats_i
+0.6900900900900901,{'selecter__k': 37},GaussianNB,[],"[False  True False False  True  True False False  True  True False False
+ False False False False False  True False False False  True False False
+ False False False False  True False  True  True  True  True False  True
+ False False  True  True  True  True False False False False  True False
+ False  True False False  True  True  True False False False False  True
+ False  True  True False  True False False  True  True  True False False
+ False False  True False  True  True False  True False False  True  True
+ False  True  True False]"
+0.7530217717717718,"{'classifier__C': 10.0, 'selecter__k': 87}",LogisticRegression,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True  True  True  True  True  True  True  True  True False  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True]"
+0.8707207207207208,"{'classifier__n_neighbors': 4, 'selecter__k': 67}",KNeighborsClassifier,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True False  True  True  True  True  True  True  True False False
+  True  True False  True  True  True  True  True False  True  True  True
+ False  True  True False  True  True  True  True  True  True  True  True
+ False  True  True  True  True  True False  True False False  True  True
+  True  True False  True  True  True  True  True False False False  True
+  True  True  True  True  True False False  True  True  True False False
+  True  True  True False  True  True  True  True  True  True  True  True
+  True  True  True False]"
