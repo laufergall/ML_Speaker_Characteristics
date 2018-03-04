@@ -6,3 +6,5 @@ classification/\.ipynb_checkpoints/
 regression/\.ipynb_checkpoints/
 
 exploratory_analysis/\.ipynb_checkpoints/
+
+data/extracted_features/eGeMAPSv01a_semispontaneous_splitted_distorted\.csv
