@@ -107,7 +107,7 @@ def all_in_folder(folder):
     return allWavs, allWavsNames
 
 
-def split_and_extractfeatures_list(nsplits, allWavs, allWavsNames, outputFileName):
+def split_and_extractfeatures_list(nsplits, allWavs, allWavsNames, confFileName, outputFileName):
     """
     For each of the given wavfiles: split into nsplits equal-length segments,
     extract features from each segment and append to outputFileName,
@@ -198,7 +198,7 @@ def main():
     allWavs, allWavsNames = all_in_folder(folder)
 
     # function to split and extract features for all wavfiles
-    split_and_extractfeatures_list(nsplits, allWavs, allWavsNames, outputFileName)
+    split_and_extractfeatures_list(nsplits, allWavs, allWavsNames, confFileName, outputFileName)
 
 
 if __name__ == "__main__":

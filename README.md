@@ -1,14 +1,30 @@
 # Predictive modeling for speaker characterization
 
+## Under construction!
+
+Still TODO:
+
+- Classification: evaluate on test data
+- regression
+- demo
+- clustering
+- recommender
+
+
+
 ## Overview
 
-The ability to assess speakers' social and personality-related characteristics automatically is desired in multiple novel systems that aim at offering individualized services. Recent developments have led to speech assistants with excellent natural language understanding and synthesis capabilities [1]. However, the characterization of individuals and their intentions and behavior still needs to be improved in order to achieve even more human-like communications.
+The ability to assess speakers' social and personality-related characteristics automatically is desired in multiple human-computer interaction systems systems that aim at offering individualized services. Recent developments have led to speech assistants with excellent natural language understanding and synthesis capabilities [1]. However, the characterization of individuals and their intentions and behavior still needs to be improved in order to achieve even more human-like communications.
 
-The goal of this project is to automatically characterize users from their speech signals, i.e. recognizing their traits (confidence, friendliness, competence, etc.) by the sound of their voices and manner of speaking.
+In particular, I am interested in evaluating the performance of speaker characterization over a range of telephone degradations. When such systems encounter transmitted instead of clean speech, e.g. in call centers, the speaker characterization accuracy might be impaired by the degradations inserted by communication channels in the speech signal.
+
+The goal of my project is to automatically characterize users from their speech signals, i.e. recognizing their traits (confidence, friendliness, competence, etc.) by the sound of their voices and manner of speaking. Predictive models will be then tested with speech degraded through telephone channel impairments to assess their influence on speaker characterization.
 
 I will be adding my predictive modeling scripts and results to this repository, as a manner of communicating my ideas combining code, data, and visualizations.
 
 My research profile is outlined [here](http://www.qu.tu-berlin.de/?id=lfernandez) and my publications can also be followed in [ResearchGate](https://www.researchgate.net/profile/Laura_Fernandez_Gallardo).
+
+This work has been supported by the German Research Foundation ([DFG](http://www.dfg.de/en/), Grant FE 1603/1-1).
 
 
 
@@ -20,6 +36,25 @@ I use the speech data from the  [Nautilus Speaker Characterization (NSC) Corpus]
 - freely available for non-commercial research at the [CLARIN](hdl.handle.net/11022/1009-0000-0007-C05F-6) or [ELRA](http://catalog.elra.info/product_info.php?products_id=1318) repositories.
 
 This repository **does not contain speakers' sensible data**, complying with the NSC license. All speakers names were pseudonymised. There is no possibility to retrieve the original recorded speech from the provided material.
+
+Taking advantage of the NSC signals' sampling frequency of 48 kHz, the influence of the newly deployed SWB telephone channels can also be studied together with the NB and WB effects (NB, WB, and SWB signals have 8, 16, and 32 kHz sampling frequency, respectively).
+
+
+
+## About the speech degradations  
+
+Speech degraded through [simulated](https://github.com/laufergall/ML_Speaker_Characteristics/tree/master/data/distortions) telecommunication channels with different parameters was employed as test data to evaluate the effects of degradations on classification and regression performance. 
+
+The degradations involved: 
+
+* a bandwidth filter, which limits the range of speech frequencies transmitted. Narrowband (NB, 300 - 3400 Hz), Wideband (WB, 50 - 7000 Hz), and SWB (50 - 14000 Hz) standard telephony bandwidths were considered. 
+* a transmission codec to compress/decompress the speech signals for transmission. 
+* for each of the codecs a random packet loss rate was applied, indicating how frequently packets are lost in the transmission.
+* jitter conditions were also considered for each packet loss condition. 
+
+My many thanks to Dr. Ramón Sánchez Iborra for the application of packet loss and jitter conditions using the [FFmpeg](https://www.ffmpeg.org/) library.
+
+
 
 ## Folder structure
 
@@ -60,48 +95,6 @@ Given the subjective ratings of speaker likability and attractiveness (preferenc
 #### \doc
 
 Papers, slides, etc.
-
-
-
-## About the speech degradations  
-
-Speech degraded through telecommunicaiton channels with different parameters was employed as test data to evaluate the effects of degradations on classification and regression performance. 
-
-The degradations involved: 
-
-* a bandwidth filter, which limits the range of speech frequencies transmitted. Narrowband (NB, 300 - 3400 Hz), Wideband (WB, 50 - 7000 Hz), and SWB (50 - 14000 Hz) standard telephony bandwidths were considered. 
-* a transmission codec to compress/decompress the speech signals for transmission. Each codec implements a compression algorithm of different characteristics with certain levels of information loss and introduced non-linear distortions. They can operate at different bitrates (kbit/s). 
-*  Narrowband codecs:  
-  * G.711(A-law)@64 and G.711(u-law)@64 
-  * G.723.1@5.3 and @6.3
-  *  GSM-EFR@12.2 
-  * AMR-NB@4.75, @5.15, @5.9, @6.7, @7.4, @7.95, @10.2, and @12.2
-  * Speex-NB@2.15, @11, and @24.6 
-* Wideband codecs:  
-  * G.722@64 
-  * AMR-WB@6.6, @8.85, @12.65, @14.25, @15.85, @18.25, @19.85, @23.05, and @23.85 
-  * Speex-WB@3.95, @23.8, and @42.2 
-  * AMR-WB+@10.4, @12, @13.6, @15.2, @16.8, @19.2, @20.8, and @24 
-* Super-wideband codecs: 
-  * G.722.1C@24, @32, and @48 
-  * EVS@7.2, @24.4, @32, @48, @64, @96, and @128 
-  * Opus@24, @32, @48, @64, @128, and @160 
-* for each of the codecs: a random packet loss rate was applied, indicating how frequently packets are lost in the transmission: 0%, 1%, 3%, 5%, and 10% were considered. 
-* jitter conditions (no jitter and 10ms jitter) were also considered for each packet loss condition. 
-
-My many thanks to Dr. Ramón Sánchez Iborra for the application of packet loss and jitter conditions using the [FFmpeg](https://www.ffmpeg.org/) library.
-
-
-
-## Under construction!
-
-Still TODO:
-
-* Classification: evaluate on test data
-* regression
-* demo
-* clustering
-* recommender
 
 
 
