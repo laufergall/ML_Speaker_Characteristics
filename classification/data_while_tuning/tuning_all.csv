@@ -31,3 +31,11 @@ best_accs,best_hps,classifiers_names,sel_feats,sel_feats_i
   True  True  True  True  True  True  True  True  True  True  True  True
   True  True  True  True  True  True  True  True  True  True  True  True
   True  True  True  True]"
+0.8502815315315315,"{'classifier__C': 10.0, 'classifier__degree': 3, 'classifier__gamma': 'auto', 'classifier__kernel': 'poly', 'selecter__k': 62}",SVCpoly,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True False  True  True  True  True  True  True  True False False
+  True False False False  True  True  True  True False  True  True  True
+ False  True  True False  True False  True  True  True  True  True  True
+ False  True  True  True  True  True False  True False False  True  True
+  True  True False False  True  True  True  True False False False  True
+  True  True  True  True  True False False  True  True  True False False
+  True False  True False  True  True  True  True  True  True  True  True
+  True  True  True False]"
