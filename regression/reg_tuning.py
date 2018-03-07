@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
 from sklearn.pipeline import Pipeline
-from sklearn.feature_selection import SelectKBest, f_classif
+from sklearn.feature_selection import SelectKBest, f_regression
 from sklearn.model_selection import RandomizedSearchCV
-from sklearn.metrics import recall_score
+from sklearn.metrics import mean_squared_error
 import pickle # save models
 
 def summary_tuning(cname, rsearch_result, filename):
@@ -11,8 +11,8 @@ def summary_tuning(cname, rsearch_result, filename):
     Summarize results of cross-validation on set A for hyperparameter tuning
 
     Inputs:
-    - cname: classifier name
-    - rsearch_result: RandomizedSearchCV results for this classifier, output of rsearch.fit(AX, Ay)
+    - cname: regressor name
+    - rsearch_result: RandomizedSearchCV results for this regressor, output of rsearch.fit(AX, Ay)
     - filename: filename with path to write the summary to
     """
     means = rsearch_result.cv_results_['mean_test_score']
@@ -33,10 +33,10 @@ def summary_tuning(cname, rsearch_result, filename):
     df.to_csv(filename, index=False)
 
 
-def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names):
+def hp_tuner(AX, BX, Ay, By, get_reg_functions, feats_names):
     """
     Perform nested hyperparameter tuning.
-    Given training data splitted into A, B sets and for each classifier type:
+    Given training data splitted into A, B sets and for each regressor type:
     Stratified cross-validation for feature selection and hyperparameter tuning using set A
     Generates csv file with summary of hp tuning (set A)
     Evaluate the performance on set B and return accs
@@ -44,46 +44,46 @@ def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names):
     Input:
     - AX and BX: features of the train set, splitted
     - Ay and By: labels of the train set, splitted
-    - get_cls_functions: list of functions tho get classifier and dict of hp to tune
+    - get_reg_functions: list of functions tho get regressor and dict of hp to tune
 
     Output:
-    - cls_acc_hps: pandas dataframe with:
-        - classifiers names
-        - classifiers hyperparameters
+    - reg_acc_hps: pandas dataframe with:
+        - regressors names
+        - regressors hyperparameters
         - selected features
         - accuracies on B set
-        of each tuned classifier corresponding to get_cls_functions
-    - trained_cls_list: list of classifiers tuned and trained on (AX+BX)
+        of each tuned regressor corresponding to get_reg_functions
+    - trained_reg_list: list of regressors tuned and trained on (AX+BX)
     """
 
-    # init lists (there will be one element per classifier in get_cls_functions)
+    # init lists (there will be one element per regressor in get_reg_functions)
 
-    classifiers_names = []
-    classifiers = []
+    regressors_names = []
+    regressors = []
     hparam_rsearchs = []
     best_accs = [] # on the B set
     best_hps = [] # determined with CV on A
     sel_feats_i = [] # indexes of selected features
     sel_feats = [] # names of selected features
-    trained_cls_list = [] # tuned classifier trained on X,y
+    trained_reg_list = [] # tuned regressor trained on X,y
 
     # iterate over list of functions
-    # to get classifiers and parameters and append to our lists
+    # to get regressors and parameters and append to our lists
 
-    for fn in get_cls_functions:
-        clsname, cls, hp = fn()
-        classifiers_names.append(clsname)
-        classifiers.append(cls)
+    for fn in get_reg_functions:
+        regname, reg, hp = fn()
+        regressors_names.append(regname)
+        regressors.append(reg)
         hparam_rsearchs.append(hp)
 
-    # tune hyperparameters with RandomizedSearchCV for each classifier
+    # tune hyperparameters with RandomizedSearchCV for each regressor
 
-    for i in np.arange(len(classifiers)):
+    for i in np.arange(len(regressors)):
 
         # create pipeline
         pipe = Pipeline([
-            ('selecter', SelectKBest(f_classif, k=4)),
-            ('classifier', classifiers[i])
+            ('selecter', SelectKBest(f_regression, k=4)),
+            ('regressor', regressors[i])
         ])
 
         # feature selection params
@@ -91,13 +91,13 @@ def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names):
             selecter__k = np.arange(2, AX.shape[1], 5)
         )
 
-        # feature selection params and classifier's params for param_rsearch:
+        # feature selection params and regressor's params for param_rsearch:
         all_params = {**fsel_params, **hparam_rsearchs[i]}
 
-        # perform randomized search on hyper parameters
+        # perform randomized search on hyperparameters
         rsearch = RandomizedSearchCV(estimator=pipe,
                             param_distributions=all_params,
-                            scoring='recall_macro', # average per-class accuracy
+                            scoring='neg_mean_squared_error', # metrics.mean_squared_error
                             n_jobs=1,
                             cv=10)
 
@@ -105,82 +105,86 @@ def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names):
         rsearch_result = rsearch.fit(AX, Ay)
 
         # summary of hp tuning on set A
-        # generate one csv file per classifier
-        summary_tuning(classifiers_names[i],
+        # generate one csv file per regressor
+        summary_tuning(regressors_names[i],
                        rsearch_result,
-                       r'.\data_while_tuning\%s_tuning.csv' % classifiers_names[i])
+                       r'.\data_while_tuning\%s_tuning.csv' % regressors_names[i])
 
         # get selected features on set A
         sel_i = rsearch_result.best_estimator_.named_steps['selecter'].get_support()
         selected = [i for indx, i in enumerate(feats_names) if sel_i[indx]]
-        print("%r -> Selected features: %r" % (classifiers_names[i], selected))
+        print("%r -> Selected features: %r" % (regressors_names[i], selected))
         sel_feats_i.append(sel_i)
         sel_feats.append(selected)
 
-        # evaluate classifier on set B
+        # evaluate regressor on set B
         By_pred = rsearch_result.best_estimator_.predict(BX)
-        score_on_B = recall_score(By, By_pred, average='macro')
-        print("%r -> Average per-class accuracy on B set: %f\n" % (classifiers_names[i], score_on_B))
+        score_on_B = np.sqrt(mean_squared_error(By, By_pred))
+        print("%r -> root mean_squared_error on B set: %f\n" % (regressors_names[i], score_on_B))
 
         # add score on B and hyperparams for output
         best_accs.append(score_on_B)
         best_hps.append(rsearch_result.best_params_)
 
-        # train classifier using all training data with this classifier
+        # train regressor using all training data with this regressor
         X = np.concatenate((AX, BX), axis=0)
         y = np.concatenate((Ay, By), axis=0)
-        trained_cls = rsearch_result.best_estimator_.fit(X,y)
-        trained_cls_list.append(trained_cls)
+        trained_reg = rsearch_result.best_estimator_.fit(X,y)
+        trained_reg_list.append(trained_reg)
 
     # create the output dataframe
     d = {
-        'classifiers_names': classifiers_names,
+        'regressors_names': regressors_names,
         'best_accs': best_accs,
         'best_hps': best_hps,
         'sel_feats': sel_feats,
         'sel_feats_i': sel_feats_i
     }
-    cls_acc_hps = pd.DataFrame(data = d)
+    reg_acc_hps = pd.DataFrame(data = d)
 
-    return cls_acc_hps, trained_cls_list
+    return reg_acc_hps, trained_reg_list
 
 
-def save_tuning(tuning_all, trained_all):
+def save_tuning(tuning_all, trained_all, target_trait):
     """
     Saving outpus of hp tuning to disk
-    Called after tuning each classifier
+    Called after tuning each regressor
 
     Input:
     - tuning_all: pandas df with tuning results
-    - trained_all: list of all classifiers trained on training data
+    - trained_all: list of all regressors trained on training data
+    - target_trait: name of the target speaker characteristic
     """
 
     # save tuning_all
-    tuning_all.to_csv(r'.\data_while_tuning\tuning_all.csv', index=False)
+    tuning_all.to_csv(r'.\data_while_tuning\tuning_all_' + target_trait + '.csv', index=False)
 
     # save trained_all
     for i in np.arange(len(trained_all)):
-        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'classifiers_names'] + '.sav'
+        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'regressors_names'] + '_' + target_trait + '.sav'
         pickle.dump(trained_all[i], open(filename, 'wb'))
 
 
-def load_tuning():
+def load_tuning(target_trait):
     """
     Loading outpus of hp tuning from disk
     Called to recover what was tuned and trained in previous sessions
 
+    Input:
+    - target_trait: name of the target speaker characteristic
+
     Output:
     - tuning_all: pandas df with tuning results
-    - trained_all: list of all classifiers trained on training data
+    - trained_all: list of all regressors trained on training data
     """
 
     # load tuning_all
-    tuning_all = pd.read_csv(r'.\data_while_tuning\tuning_all.csv')
+    tuning_all = pd.read_csv(r'.\data_while_tuning\tuning_all_' + target_trait + '.csv')
 
     # load trained_all
     trained_all=[]
     for i in np.arange(len(tuning_all)):
-        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'classifiers_names'] + '.sav'
+        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'regressors_names'] + '_' + target_trait + '.sav'
         loaded_model = pickle.load(open(filename, 'rb'))
         trained_all.append(loaded_model)
 
