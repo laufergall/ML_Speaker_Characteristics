@@ -4,7 +4,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_selection import SelectKBest, f_classif, mutual_info_classif
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import recall_score
-
+import pickle # save models
 
 def summary_tuning(cname, grid_result, filename):
     """
