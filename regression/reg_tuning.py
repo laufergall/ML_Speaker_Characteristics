@@ -88,7 +88,7 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, feats_names):
 
         # feature selection params
         fsel_params = dict(
-            selecter__k = np.arange(2, AX.shape[1], 5)
+            selecter__k = np.arange(1, AX.shape[1])
         )
 
         # feature selection params and regressor's params for param_rsearch:
@@ -113,7 +113,8 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, feats_names):
         # get selected features on set A
         sel_i = rsearch_result.best_estimator_.named_steps['selecter'].get_support()
         selected = [i for indx, i in enumerate(feats_names) if sel_i[indx]]
-        print("%r -> Selected features: %r" % (regressors_names[i], selected))
+        print("%r -> Selected features:" % regressors_names[i])
+        print(selected)
         sel_feats_i.append(sel_i)
         sel_feats.append(selected)
 
