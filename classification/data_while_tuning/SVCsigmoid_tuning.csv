@@ -1,0 +1,11 @@
+mean_acc_A,model,params,stdev_acc_A
+0.5295429022404698,SVCsigmoid,"{'selecter__k': 72, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 10.0, 'classifier__C': 0.01}",0.022365344962987532
+0.5,SVCsigmoid,"{'selecter__k': 66, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 100.0, 'classifier__C': 1.0000000000000001e-05}",0.0
+0.5253083177597027,SVCsigmoid,"{'selecter__k': 39, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 1.0, 'classifier__C': 10.0}",0.05695860004307908
+0.6646377273865671,SVCsigmoid,"{'selecter__k': 51, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 0.0001, 'classifier__C': 10.0}",0.022443020576766844
+0.5211174261230086,SVCsigmoid,"{'selecter__k': 41, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 10.0, 'classifier__C': 10.0}",0.055734677645360726
+0.5,SVCsigmoid,"{'selecter__k': 48, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 1000.0, 'classifier__C': 0.001}",0.0
+0.5,SVCsigmoid,"{'selecter__k': 74, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 10.0, 'classifier__C': 1.0000000000000001e-05}",0.0
+0.5,SVCsigmoid,"{'selecter__k': 57, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 0.01, 'classifier__C': 0.0001}",0.0
+0.7349300920072953,SVCsigmoid,"{'selecter__k': 68, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 1.0000000000000001e-05, 'classifier__C': 1000.0}",0.021308253255924385
+0.7097125880970586,SVCsigmoid,"{'selecter__k': 36, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 0.001, 'classifier__C': 10.0}",0.019626634048815206

@@ -1,13 +1,29 @@
 best_accs,best_hps,classifiers_names,sel_feats,sel_feats_i
-0.6900900900900901,{'selecter__k': 37},GaussianNB,[],"[False  True False False  True  True False False  True  True False False
- False False False False False  True False False False  True False False
- False False False False  True False  True  True  True  True False  True
- False False  True  True  True  True False False False False  True False
- False  True False False  True  True  True False False False False  True
- False  True  True False  True False False  True  True  True False False
- False False  True False  True  True False  True False False  True  True
+0.6900900900900901,{'selecter__k': 37},GaussianNB,[],"[False  True False False  True  True False False  True  True False False
+ False False False False False  True False False False  True False False
+ False False False False  True False  True  True  True  True False  True
+ False False  True  True  True  True False False False False  True False
+ False  True False False  True  True  True False False False False  True
+ False  True  True False  True False False  True  True  True False False
+ False False  True False  True  True False  True False False  True  True
  False  True  True False]"
-0.7530217717717718,"{'classifier__C': 10.0, 'selecter__k': 87}",LogisticRegression,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True  True  True  True  True  True  True  True  True False  True
+0.7530217717717718,"{'classifier__C': 10.0, 'selecter__k': 87}",LogisticRegression,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True  True  True  True  True  True  True  True  True False  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True]"
+0.8707207207207208,"{'classifier__n_neighbors': 4, 'selecter__k': 67}",KNeighborsClassifier,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True False  True  True  True  True  True  True  True False False
+  True  True False  True  True  True  True  True False  True  True  True
+ False  True  True False  True  True  True  True  True  True  True  True
+ False  True  True  True  True  True False  True False False  True  True
+  True  True False  True  True  True  True  True False False False  True
+  True  True  True  True  True False False  True  True  True False False
+  True  True  True False  True  True  True  True  True  True  True  True
+  True  True  True False]"
+0.7375938438438439,"{'classifier__C': 0.10000000000000001, 'classifier__kernel': 'linear', 'selecter__k': 87}",SVClinear,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True  True  True  True  True  True  True  True  True False  True
   True  True  True  True  True  True  True  True  True  True  True  True
   True  True  True  True  True  True  True  True  True  True  True  True
   True  True  True  True  True  True  True  True  True  True  True  True
@@ -15,35 +31,27 @@ best_accs,best_hps,classifiers_names,sel_feats,sel_feats_i
   True  True  True  True  True  True  True  True  True  True  True  True
   True  True  True  True  True  True  True  True  True  True  True  True
   True  True  True  True]"
-0.8707207207207208,"{'classifier__n_neighbors': 4, 'selecter__k': 67}",KNeighborsClassifier,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True False  True  True  True  True  True  True  True False False
-  True  True False  True  True  True  True  True False  True  True  True
- False  True  True False  True  True  True  True  True  True  True  True
+0.8502815315315315,"{'classifier__C': 10.0, 'classifier__degree': 3, 'classifier__gamma': 'auto', 'classifier__kernel': 'poly', 'selecter__k': 62}",SVCpoly,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True False  True  True  True  True  True  True  True False False
+  True False False False  True  True  True  True False  True  True  True
+ False  True  True False  True False  True  True  True  True  True  True
  False  True  True  True  True  True False  True False False  True  True
-  True  True False  True  True  True  True  True False False False  True
+  True  True False False  True  True  True  True False False False  True
   True  True  True  True  True False False  True  True  True False False
-  True  True  True False  True  True  True  True  True  True  True  True
+  True False  True False  True  True  True  True  True  True  True  True
   True  True  True False]"
-0.7375938438438439,"{'classifier__C': 0.10000000000000001, 'classifier__kernel': 'linear', 'selecter__k': 87}",SVClinear,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True  True  True  True  True  True  True  True  True False  True
-  True  True  True  True  True  True  True  True  True  True  True  True
-  True  True  True  True  True  True  True  True  True  True  True  True
-  True  True  True  True  True  True  True  True  True  True  True  True
-  True  True  True  True  True  True  True  True  True  True  True  True
-  True  True  True  True  True  True  True  True  True  True  True  True
-  True  True  True  True  True  True  True  True  True  True  True  True
+0.7522522522522522,"{'selecter__k': 79, 'classifier__kernel': 'rbf', 'classifier__gamma': 0.00037926901907322499, 'classifier__C': 20.691380811147901}",SVCrbf,"[[""'F0semitoneFrom27.5Hz_sma3nz_amean'""], [""'F0semitoneFrom27.5Hz_sma3nz_stddevNorm'""], [""'F0semitoneFrom27.5Hz_sma3nz_percentile20.0'""], [""'F0semitoneFrom27.5Hz_sma3nz_percentile50.0'""], [""'F0semitoneFrom27.5Hz_sma3nz_percentile80.0'""], [""'F0semitoneFrom27.5Hz_sma3nz_pctlrange0-2'""], [""'F0semitoneFrom27.5Hz_sma3nz_meanRisingSlope'""], [""'F0semitoneFrom27.5Hz_sma3nz_stddevRisingSlope'""], [""'F0semitoneFrom27.5Hz_sma3nz_meanFallingSlope'""], [""'F0semitoneFrom27.5Hz_sma3nz_stddevFallingSlope'""], [""'loudness_sma3_percentile20.0'""], [""'loudness_sma3_percentile50.0'""], [""'loudness_sma3_percentile80.0'""], [""'loudness_sma3_pctlrange0-2'""], [""'loudness_sma3_meanRisingSlope'""], [""'loudness_sma3_stddevRisingSlope'""], [""'loudness_sma3_meanFallingSlope'""], [""'loudness_sma3_stddevFallingSlope'""], [""'spectralFlux_sma3_amean'""], [""'spectralFlux_sma3_stddevNorm'""], [""'mfcc1_sma3_amean'""], [""'mfcc1_sma3_stddevNorm'""], [""'mfcc2_sma3_stddevNorm'""], [""'mfcc3_sma3_amean'""], [""'mfcc3_sma3_stddevNorm'""], [""'mfcc4_sma3_amean'""], [""'mfcc4_sma3_stddevNorm'""], [""'jitterLocal_sma3nz_amean'""], [""'jitterLocal_sma3nz_stddevNorm'""], [""'shimmerLocaldB_sma3nz_amean'""], [""'shimmerLocaldB_sma3nz_stddevNorm'""], [""'HNRdBACF_sma3nz_amean'""], [""'HNRdBACF_sma3nz_stddevNorm'""], [""'logRelF0-H1-H2_sma3nz_amean'""], [""'logRelF0-H1-H2_sma3nz_stddevNorm'""], [""'logRelF0-H1-A3_sma3nz_amean'""], [""'logRelF0-H1-A3_sma3nz_stddevNorm'""], [""'F1frequency_sma3nz_amean'""], [""'F1frequency_sma3nz_stddevNorm'""], [""'F1bandwidth_sma3nz_amean'""], [""'F1bandwidth_sma3nz_stddevNorm'""], [""'F1amplitudeLogRelF0_sma3nz_amean'""], [""'F2frequency_sma3nz_amean'""], [""'F2frequency_sma3nz_stddevNorm'""], [""'F2bandwidth_sma3nz_amean'""], [""'F2bandwidth_sma3nz_stddevNorm'""], [""'F2amplitudeLogRelF0_sma3nz_stddevNorm'""], [""'F3frequency_sma3nz_amean'""], [""'F3frequency_sma3nz_stddevNorm'""], [""'F3bandwidth_sma3nz_amean'""], [""'F3bandwidth_sma3nz_stddevNorm'""], [""'alphaRatioV_sma3nz_amean'""], [""'alphaRatioV_sma3nz_stddevNorm'""], [""'hammarbergIndexV_sma3nz_amean'""], [""'hammarbergIndexV_sma3nz_stddevNorm'""], [""'slopeV0-500_sma3nz_amean'""], [""'slopeV0-500_sma3nz_stddevNorm'""], [""'slopeV500-1500_sma3nz_amean'""], [""'spectralFluxV_sma3nz_amean'""], [""'spectralFluxV_sma3nz_stddevNorm'""], [""'mfcc1V_sma3nz_amean'""], [""'mfcc1V_sma3nz_stddevNorm'""], [""'mfcc2V_sma3nz_amean'""], [""'mfcc3V_sma3nz_amean'""], [""'mfcc3V_sma3nz_stddevNorm'""], [""'mfcc4V_sma3nz_amean'""], [""'mfcc4V_sma3nz_stddevNorm'""], [""'alphaRatioUV_sma3nz_amean'""], [""'hammarbergIndexUV_sma3nz_amean'""], [""'slopeUV0-500_sma3nz_amean'""], [""'slopeUV500-1500_sma3nz_amean'""], [""'spectralFluxUV_sma3nz_amean'""], [""'loudnessPeaksPerSec'""], [""'VoicedSegmentsPerSec'""], [""'MeanVoicedSegmentLengthSec'""], [""'StddevVoicedSegmentLengthSec'""], [""'MeanUnvoicedSegmentLength'""], [""'StddevUnvoicedSegmentLength'""], [""'equivalentSoundLevel_dBp'""]]","[ True  True  True  True  True  True  True  True  True  True False False
+  True  True  True  True  True  True  True  True  True  True  True  True
+ False  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True  True False  True  True
+  True  True False  True  True  True  True  True False False  True  True
+  True  True  True  True  True False  True  True  True  True  True False
+  True  True  True  True  True  True  True  True  True  True  True  True
   True  True  True  True]"
-0.8502815315315315,"{'classifier__C': 10.0, 'classifier__degree': 3, 'classifier__gamma': 'auto', 'classifier__kernel': 'poly', 'selecter__k': 62}",SVCpoly,"[""'F0semitoneFrom27.5Hz_sma3nz_amean'""]","[ True  True False  True  True  True  True  True  True  True False False
-  True False False False  True  True  True  True False  True  True  True
- False  True  True False  True False  True  True  True  True  True  True
- False  True  True  True  True  True False  True False False  True  True
-  True  True False False  True  True  True  True False False False  True
-  True  True  True  True  True False False  True  True  True False False
-  True False  True False  True  True  True  True  True  True  True  True
+0.7298798798798799,"{'selecter__k': 68, 'classifier__kernel': 'sigmoid', 'classifier__gamma': 1.0000000000000001e-05, 'classifier__C': 1000.0}",SVCsigmoid,"[[""'F0semitoneFrom27.5Hz_sma3nz_amean'""], [""'F0semitoneFrom27.5Hz_sma3nz_stddevNorm'""], [""'F0semitoneFrom27.5Hz_sma3nz_percentile50.0'""], [""'F0semitoneFrom27.5Hz_sma3nz_percentile80.0'""], [""'F0semitoneFrom27.5Hz_sma3nz_pctlrange0-2'""], [""'F0semitoneFrom27.5Hz_sma3nz_meanRisingSlope'""], [""'F0semitoneFrom27.5Hz_sma3nz_stddevRisingSlope'""], [""'F0semitoneFrom27.5Hz_sma3nz_meanFallingSlope'""], [""'F0semitoneFrom27.5Hz_sma3nz_stddevFallingSlope'""], [""'loudness_sma3_percentile20.0'""], [""'loudness_sma3_percentile50.0'""], [""'loudness_sma3_pctlrange0-2'""], [""'loudness_sma3_meanRisingSlope'""], [""'loudness_sma3_stddevRisingSlope'""], [""'loudness_sma3_meanFallingSlope'""], [""'loudness_sma3_stddevFallingSlope'""], [""'spectralFlux_sma3_stddevNorm'""], [""'mfcc1_sma3_amean'""], [""'mfcc1_sma3_stddevNorm'""], [""'mfcc2_sma3_stddevNorm'""], [""'mfcc3_sma3_amean'""], [""'mfcc4_sma3_amean'""], [""'mfcc4_sma3_stddevNorm'""], [""'jitterLocal_sma3nz_amean'""], [""'jitterLocal_sma3nz_stddevNorm'""], [""'shimmerLocaldB_sma3nz_amean'""], [""'shimmerLocaldB_sma3nz_stddevNorm'""], [""'HNRdBACF_sma3nz_amean'""], [""'HNRdBACF_sma3nz_stddevNorm'""], [""'logRelF0-H1-H2_sma3nz_stddevNorm'""], [""'logRelF0-H1-A3_sma3nz_amean'""], [""'logRelF0-H1-A3_sma3nz_stddevNorm'""], [""'F1frequency_sma3nz_amean'""], [""'F1frequency_sma3nz_stddevNorm'""], [""'F1bandwidth_sma3nz_amean'""], [""'F1bandwidth_sma3nz_stddevNorm'""], [""'F2frequency_sma3nz_amean'""], [""'F2frequency_sma3nz_stddevNorm'""], [""'F2bandwidth_sma3nz_amean'""], [""'F2bandwidth_sma3nz_stddevNorm'""], [""'F2amplitudeLogRelF0_sma3nz_stddevNorm'""], [""'F3frequency_sma3nz_amean'""], [""'F3frequency_sma3nz_stddevNorm'""], [""'F3bandwidth_sma3nz_amean'""], [""'F3bandwidth_sma3nz_stddevNorm'""], [""'alphaRatioV_sma3nz_stddevNorm'""], [""'hammarbergIndexV_sma3nz_amean'""], [""'hammarbergIndexV_sma3nz_stddevNorm'""], [""'slopeV0-500_sma3nz_amean'""], [""'slopeV0-500_sma3nz_stddevNorm'""], [""'slopeV500-1500_sma3nz_amean'""], [""'spectralFluxV_sma3nz_stddevNorm'""], [""'mfcc1V_sma3nz_amean'""], [""'mfcc1V_sma3nz_stddevNorm'""], [""'mfcc3V_sma3nz_amean'""], [""'mfcc3V_sma3nz_stddevNorm'""], [""'mfcc4V_sma3nz_amean'""], [""'alphaRatioUV_sma3nz_amean'""], [""'hammarbergIndexUV_sma3nz_amean'""], [""'slopeUV0-500_sma3nz_amean'""], [""'slopeUV500-1500_sma3nz_amean'""], [""'spectralFluxUV_sma3nz_amean'""], [""'loudnessPeaksPerSec'""], [""'VoicedSegmentsPerSec'""], [""'MeanVoicedSegmentLengthSec'""], [""'StddevVoicedSegmentLengthSec'""], [""'MeanUnvoicedSegmentLength'""], [""'StddevUnvoicedSegmentLength'""]]","[ True  True False  True  True  True  True  True  True  True False False
+  True  True False  True  True  True  True  True False  True  True  True
+ False  True  True False  True  True  True  True  True  True  True  True
+ False  True  True  True  True  True  True  True False False  True  True
+  True  True False  True  True  True  True  True False False False  True
+  True  True  True  True  True False False  True  True  True False False
+  True  True  True False  True  True  True  True  True  True  True  True
   True  True  True False]"
-0.7522522522522522,"{'selecter__k': 79, 'classifier__kernel': 'rbf', 'classifier__gamma': 0.00037926901907322499, 'classifier__C': 20.691380811147901}",SVCrbf,"[[""'F0semitoneFrom27.5Hz_sma3nz_amean'""], [""'F0semitoneFrom27.5Hz_sma3nz_stddevNorm'""], [""'F0semitoneFrom27.5Hz_sma3nz_percentile20.0'""], [""'F0semitoneFrom27.5Hz_sma3nz_percentile50.0'""], [""'F0semitoneFrom27.5Hz_sma3nz_percentile80.0'""], [""'F0semitoneFrom27.5Hz_sma3nz_pctlrange0-2'""], [""'F0semitoneFrom27.5Hz_sma3nz_meanRisingSlope'""], [""'F0semitoneFrom27.5Hz_sma3nz_stddevRisingSlope'""], [""'F0semitoneFrom27.5Hz_sma3nz_meanFallingSlope'""], [""'F0semitoneFrom27.5Hz_sma3nz_stddevFallingSlope'""], [""'loudness_sma3_percentile20.0'""], [""'loudness_sma3_percentile50.0'""], [""'loudness_sma3_percentile80.0'""], [""'loudness_sma3_pctlrange0-2'""], [""'loudness_sma3_meanRisingSlope'""], [""'loudness_sma3_stddevRisingSlope'""], [""'loudness_sma3_meanFallingSlope'""], [""'loudness_sma3_stddevFallingSlope'""], [""'spectralFlux_sma3_amean'""], [""'spectralFlux_sma3_stddevNorm'""], [""'mfcc1_sma3_amean'""], [""'mfcc1_sma3_stddevNorm'""], [""'mfcc2_sma3_stddevNorm'""], [""'mfcc3_sma3_amean'""], [""'mfcc3_sma3_stddevNorm'""], [""'mfcc4_sma3_amean'""], [""'mfcc4_sma3_stddevNorm'""], [""'jitterLocal_sma3nz_amean'""], [""'jitterLocal_sma3nz_stddevNorm'""], [""'shimmerLocaldB_sma3nz_amean'""], [""'shimmerLocaldB_sma3nz_stddevNorm'""], [""'HNRdBACF_sma3nz_amean'""], [""'HNRdBACF_sma3nz_stddevNorm'""], [""'logRelF0-H1-H2_sma3nz_amean'""], [""'logRelF0-H1-H2_sma3nz_stddevNorm'""], [""'logRelF0-H1-A3_sma3nz_amean'""], [""'logRelF0-H1-A3_sma3nz_stddevNorm'""], [""'F1frequency_sma3nz_amean'""], [""'F1frequency_sma3nz_stddevNorm'""], [""'F1bandwidth_sma3nz_amean'""], [""'F1bandwidth_sma3nz_stddevNorm'""], [""'F1amplitudeLogRelF0_sma3nz_amean'""], [""'F2frequency_sma3nz_amean'""], [""'F2frequency_sma3nz_stddevNorm'""], [""'F2bandwidth_sma3nz_amean'""], [""'F2bandwidth_sma3nz_stddevNorm'""], [""'F2amplitudeLogRelF0_sma3nz_stddevNorm'""], [""'F3frequency_sma3nz_amean'""], [""'F3frequency_sma3nz_stddevNorm'""], [""'F3bandwidth_sma3nz_amean'""], [""'F3bandwidth_sma3nz_stddevNorm'""], [""'alphaRatioV_sma3nz_amean'""], [""'alphaRatioV_sma3nz_stddevNorm'""], [""'hammarbergIndexV_sma3nz_amean'""], [""'hammarbergIndexV_sma3nz_stddevNorm'""], [""'slopeV0-500_sma3nz_amean'""], [""'slopeV0-500_sma3nz_stddevNorm'""], [""'slopeV500-1500_sma3nz_amean'""], [""'spectralFluxV_sma3nz_amean'""], [""'spectralFluxV_sma3nz_stddevNorm'""], [""'mfcc1V_sma3nz_amean'""], [""'mfcc1V_sma3nz_stddevNorm'""], [""'mfcc2V_sma3nz_amean'""], [""'mfcc3V_sma3nz_amean'""], [""'mfcc3V_sma3nz_stddevNorm'""], [""'mfcc4V_sma3nz_amean'""], [""'mfcc4V_sma3nz_stddevNorm'""], [""'alphaRatioUV_sma3nz_amean'""], [""'hammarbergIndexUV_sma3nz_amean'""], [""'slopeUV0-500_sma3nz_amean'""], [""'slopeUV500-1500_sma3nz_amean'""], [""'spectralFluxUV_sma3nz_amean'""], [""'loudnessPeaksPerSec'""], [""'VoicedSegmentsPerSec'""], [""'MeanVoicedSegmentLengthSec'""], [""'StddevVoicedSegmentLengthSec'""], [""'MeanUnvoicedSegmentLength'""], [""'StddevUnvoicedSegmentLength'""], [""'equivalentSoundLevel_dBp'""]]","[ True  True  True  True  True  True  True  True  True  True False False
-  True  True  True  True  True  True  True  True  True  True  True  True
- False  True  True  True  True  True  True  True  True  True  True  True
-  True  True  True  True  True  True  True  True  True False  True  True
-  True  True False  True  True  True  True  True False False  True  True
-  True  True  True  True  True False  True  True  True  True  True False
-  True  True  True  True  True  True  True  True  True  True  True  True
-  True  True  True  True]"

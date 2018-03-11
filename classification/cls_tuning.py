@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.pipeline import Pipeline
 from sklearn.feature_selection import SelectKBest, f_classif
 from sklearn.model_selection import RandomizedSearchCV
+from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import recall_score
 import pickle # save models
 
@@ -35,7 +36,7 @@ def summary_tuning(cname, rsearch_result, filename):
 
 def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names):
     """
-    Perform nested hyperparameter tuning.
+    Perform nested hyperparameter tuning with RandomizedSearchCV.
     Given training data splitted into A, B sets and for each classifier type:
     Stratified cross-validation for feature selection and hyperparameter tuning using set A
     Generates csv file with summary of hp tuning (set A)
@@ -45,6 +46,7 @@ def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names):
     - AX and BX: features of the train set, splitted
     - Ay and By: labels of the train set, splitted
     - get_cls_functions: list of functions tho get classifier and dict of hp to tune
+    - feats_names: list of feature names, only needed for output
 
     Output:
     - cls_acc_hps: pandas dataframe with:
@@ -144,6 +146,122 @@ def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names):
     cls_acc_hps = pd.DataFrame(data = d)
 
     return cls_acc_hps, trained_cls_list
+
+
+def hp_finetuner(AX, BX, Ay, By, get_cls_functions, feats_names, k_gridsearch):
+    """
+    Perform nested hyperparameter tuning with GridSearchCV.
+    Given training data splitted into A, B sets and for each classifier type:
+    Stratified cross-validation for feature selection and hyperparameter tuning using set A
+    Generates csv file with summary of hp tuning (set A)
+    Evaluate the performance on set B and return accs
+
+    Input:
+    - AX and BX: features of the train set, splitted
+    - Ay and By: labels of the train set, splitted
+    - get_cls_functions: list of functions tho get classifier and dict of hp to tune
+    - feats_names: list of feature names, only needed for output
+    - k_gridsearch: numpy array with values to try for SelectKBest features
+
+    Output:
+    - cls_acc_hps: pandas dataframe with:
+        - classifiers names
+        - classifiers hyperparameters
+        - selected features
+        - accuracies on B set
+        of each tuned classifier corresponding to get_cls_functions
+    - trained_cls_list: list of classifiers tuned and trained on (AX+BX)
+    """
+
+    # init lists (there will be one element per classifier in get_cls_functions)
+
+    classifiers_names = []
+    classifiers = []
+    hparam_gridsearchs = []
+    best_accs = [] # on the B set
+    best_hps = [] # determined with CV on A
+    sel_feats_i = [] # indexes of selected features
+    sel_feats = [] # names of selected features
+    trained_cls_list = [] # tuned classifier trained on X,y
+
+    # iterate over list of functions
+    # to get classifiers and parameters and append to our lists
+
+    for fn in get_cls_functions:
+        clsname, cls, hp = fn()
+        classifiers_names.append(clsname)
+        classifiers.append(cls)
+        hparam_gridsearchs.append(hp)
+
+    # tune hyperparameters with GridSearchCV for each classifier
+
+    for i in np.arange(len(classifiers)):
+
+        # create pipeline
+        pipe = Pipeline([
+            ('selecter', SelectKBest(f_classif, k=4)),
+            ('classifier', classifiers[i])
+        ])
+
+        # feature selection params
+        fsel_params = dict(
+            selecter__k = k_gridsearch
+        )
+
+        # feature selection params and classifier's params for param_gridsearch:
+        all_params = {**fsel_params, **hparam_gridsearchs[i]}
+
+        # perform Grid search on hyper parameters
+        gridsearch = GridSearchCV(estimator=pipe,
+                            param_grid=all_params,
+                            scoring='recall_macro', # average per-class accuracy
+                            n_jobs=1,
+                            cv=10)
+
+        # This might take a while:
+        gridsearch_result = gridsearch.fit(AX, Ay)
+
+        # summary of hp tuning on set A
+        # generate one csv file per classifier
+        summary_tuning(classifiers_names[i],
+                       gridsearch_result,
+                       r'.\data_while_tuning\%s_tuning.csv' % classifiers_names[i])
+
+        # get selected features on set A
+        sel_i = gridsearch_result.best_estimator_.named_steps['selecter'].get_support()
+        selected = [i for indx, i in enumerate(feats_names) if sel_i[indx]]
+        print("%r -> Selected features:" % classifiers_names[i])
+        print(selected)
+        sel_feats_i.append(sel_i)
+        sel_feats.append(selected)
+
+        # evaluate classifier on set B
+        By_pred = gridsearch_result.best_estimator_.predict(BX)
+        score_on_B = recall_score(By, By_pred, average='macro')
+        print("%r -> Average per-class accuracy on B set: %f\n" % (classifiers_names[i], score_on_B))
+
+        # add score on B and hyperparams for output
+        best_accs.append(score_on_B)
+        best_hps.append(gridsearch_result.best_params_)
+
+        # train classifier using all training data with this classifier
+        X = np.concatenate((AX, BX), axis=0)
+        y = np.concatenate((Ay, By), axis=0)
+        trained_cls = gridsearch_result.best_estimator_.fit(X,y)
+        trained_cls_list.append(trained_cls)
+
+    # create the output dataframe
+    d = {
+        'classifiers_names': classifiers_names,
+        'best_accs': best_accs,
+        'best_hps': best_hps,
+        'sel_feats': sel_feats,
+        'sel_feats_i': sel_feats_i
+    }
+    cls_acc_hps = pd.DataFrame(data = d)
+
+    return cls_acc_hps, trained_cls_list
+
 
 
 def save_tuning(tuning_all, trained_all):
