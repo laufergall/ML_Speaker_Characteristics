@@ -1,0 +1,11 @@
+mean_acc_A,model,params,stdev_acc_A
+-2.0906906886175074,DecisionTreeRegressor,{'regressor__estimator__max_depth': 6},0.22879636353123098
+-2.731175694211109,DecisionTreeRegressor,{'regressor__estimator__max_depth': 18},0.33982913114047614
+-2.1996646673166715,DecisionTreeRegressor,{'regressor__estimator__max_depth': 8},0.232635966193933
+-2.5431623582942064,DecisionTreeRegressor,{'regressor__estimator__max_depth': 12},0.29754093830546063
+-2.4801529800020874,DecisionTreeRegressor,{'regressor__estimator__max_depth': 11},0.27835053382233854
+-2.3973852612973627,DecisionTreeRegressor,{'regressor__estimator__max_depth': 10},0.29777067892628434
+-2.0805400610014058,DecisionTreeRegressor,{'regressor__estimator__max_depth': 2},0.15113607759321523
+-2.0608215319953627,DecisionTreeRegressor,{'regressor__estimator__max_depth': 3},0.1325039213564069
+-2.5899363868440566,DecisionTreeRegressor,{'regressor__estimator__max_depth': 13},0.2372904282299503
+-2.2686603243359995,DecisionTreeRegressor,{'regressor__estimator__max_depth': 9},0.21876041996544413

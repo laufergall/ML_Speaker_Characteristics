@@ -5,6 +5,7 @@ from sklearn.feature_selection import SelectKBest, f_regression
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import mean_squared_error
+from sklearn.multioutput import MultiOutputRegressor
 import pickle # save models
 
 def summary_tuning(cname, search_result, filename):
@@ -34,7 +35,7 @@ def summary_tuning(cname, search_result, filename):
     df.to_csv(filename, index=False)
 
 
-def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_array, mode):
+def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_array, mode, n_iter):
     """
     Perform nested hyperparameter tuning with RandomizedSearchCV.
     Given training data splitted into A, B sets and for each regressor type:
@@ -50,6 +51,7 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_arr
     - feats_names: list of feature names, only needed for output
     - k_array: numpy array with values to try for SelectKBest features
     - mode: str indicating type of hyperparameter search: 'random' or 'grid'
+    - n_iter: number of iterations for random search (ignored if grid search)
 
     Output:
     - reg_acc_hps: pandas dataframe with:
@@ -85,25 +87,37 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_arr
 
     for i in np.arange(len(regressors)):
 
-        # create pipeline
-        pipe = Pipeline([
-            ('selecter', SelectKBest(f_regression, k=4)),
-            ('regressor', regressors[i])
-        ])
+        if Ay.shape[1]>1: # multioutput (SelectKBest not supported)
 
-        # feature selection params: given as input to this function
-        fsel_params = dict(
-            selecter__k = k_array
-        )
+            # create pipeline
+            pipe = Pipeline([
+                ('regressor', MultiOutputRegressor(regressors[i]))
+            ])
 
-        # feature selection params and regressor's params for param_gridsearch:
-        all_params = {**fsel_params, **hparam_searchs[i]}
+            # feature selection params and regressor's params for param_gridsearch:
+            all_params = hparam_searchs[i]
+
+        else:
+
+            # create pipeline
+            pipe = Pipeline([
+                ('selecter', SelectKBest(f_regression, k=4)),
+                ('regressor', regressors[i])
+            ])
+
+            # feature selection params: given as input to this function
+            fsel_params = dict(
+                selecter__k = k_array
+            )
+
+            # feature selection params and regressor's params for param_gridsearch:
+            all_params = {**fsel_params, **hparam_searchs[i]}
 
         # perform randomized search or grid search on hyper parameters
         if mode == 'random':
             search = RandomizedSearchCV(estimator=pipe,
                                 param_distributions=all_params,
-                                n_iter=50,
+                                n_iter=n_iter,
                                 scoring='neg_mean_squared_error', # metrics.mean_squared_error
                                 n_jobs=1,
                                 cv=10)
@@ -124,8 +138,12 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_arr
                        search_result,
                        r'.\data_while_tuning\%s_%s_tuning.csv' % (regressors_names[i], target_trait))
 
-        # get selected features on set A
-        sel_i = search_result.best_estimator_.named_steps['selecter'].get_support()
+        # get selected features on set A (not if multioutput
+        if Ay.shape[1]>1: # multioutput (SelectKBest not supported)
+            sel_i = np.ones(AX.shape[1], dtype=bool)
+        else:
+            sel_i = search_result.best_estimator_.named_steps['selecter'].get_support()
+
         selected = [i for indx, i in enumerate(feats_names) if sel_i[indx]]
         #print("%r -> Selected features:" % regressors_names[i])
         #print(selected)
