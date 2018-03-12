@@ -1,0 +1,11 @@
+mean_acc_A,model,params,stdev_acc_A
+-2.1212777528237465,RandomForestRegressor,"{'regressor__estimator__min_samples_leaf': 87, 'regressor__estimator__max_features': 15, 'regressor__estimator__max_depth': 11}",0.1305670381605994
+-2.4928505804895047,RandomForestRegressor,"{'regressor__estimator__min_samples_leaf': 4, 'regressor__estimator__max_features': 18, 'regressor__estimator__max_depth': 19}",0.26288289103497225
+-2.0627154862814696,RandomForestRegressor,"{'regressor__estimator__min_samples_leaf': 6, 'regressor__estimator__max_features': 14, 'regressor__estimator__max_depth': 7}",0.16519154204888897
+-2.206284204748145,RandomForestRegressor,"{'regressor__estimator__min_samples_leaf': 87, 'regressor__estimator__max_features': 10, 'regressor__estimator__max_depth': 3}",0.10301386143979144
+-2.0367120476580447,RandomForestRegressor,"{'regressor__estimator__min_samples_leaf': 52, 'regressor__estimator__max_features': 18, 'regressor__estimator__max_depth': 10}",0.20840134473852923
+-2.122193658196804,RandomForestRegressor,"{'regressor__estimator__min_samples_leaf': 64, 'regressor__estimator__max_features': 8, 'regressor__estimator__max_depth': 15}",0.15161068323540633
+-2.2083635898203022,RandomForestRegressor,"{'regressor__estimator__min_samples_leaf': 47, 'regressor__estimator__max_features': 14, 'regressor__estimator__max_depth': 2}",0.15040271256113313
+-1.9984673563081203,RandomForestRegressor,"{'regressor__estimator__min_samples_leaf': 35, 'regressor__estimator__max_features': 17, 'regressor__estimator__max_depth': 15}",0.1452847288080835
+-2.1523536082467762,RandomForestRegressor,"{'regressor__estimator__min_samples_leaf': 16, 'regressor__estimator__max_features': 13, 'regressor__estimator__max_depth': 17}",0.19365197159699024
+-2.1653919140298945,RandomForestRegressor,"{'regressor__estimator__min_samples_leaf': 37, 'regressor__estimator__max_features': 9, 'regressor__estimator__max_depth': 3}",0.13023620097120964
