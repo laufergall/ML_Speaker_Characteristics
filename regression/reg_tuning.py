@@ -35,7 +35,7 @@ def summary_tuning(cname, search_result, filename):
     df.to_csv(filename, index=False)
 
 
-def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_array, mode, n_iter):
+def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_array, mode, n_iter=10):
     """
     Perform nested hyperparameter tuning with RandomizedSearchCV.
     Given training data splitted into A, B sets and for each regressor type:
@@ -51,7 +51,7 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_arr
     - feats_names: list of feature names, only needed for output
     - k_array: numpy array with values to try for SelectKBest features
     - mode: str indicating type of hyperparameter search: 'random' or 'grid'
-    - n_iter: number of iterations for random search (ignored if grid search)
+    - n_iter: number of iterations for random search (optional, default = 10, ignored if grid search)
 
     Output:
     - reg_acc_hps: pandas dataframe with:
@@ -87,7 +87,7 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_arr
 
     for i in np.arange(len(regressors)):
 
-        if Ay.shape[1]>1: # multioutput (SelectKBest not supported)
+        if Ay.ndim > 1: # multioutput (SelectKBest not supported)
 
             # create pipeline
             pipe = Pipeline([
@@ -139,7 +139,7 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_arr
                        r'.\data_while_tuning\%s_%s_tuning.csv' % (regressors_names[i], target_trait))
 
         # get selected features on set A (not if multioutput
-        if Ay.shape[1]>1: # multioutput (SelectKBest not supported)
+        if Ay.ndim > 1: # multioutput (SelectKBest not supported)
             sel_i = np.ones(AX.shape[1], dtype=bool)
         else:
             sel_i = search_result.best_estimator_.named_steps['selecter'].get_support()

@@ -1,0 +1,9 @@
+mean_acc_A,model,params,stdev_acc_A
+-99.57046649060635,SVRlinear,"{'regressor__C': 1.0000000000000001e-05, 'regressor__kernel': 'linear', 'selecter__k': 88}",7.252286920964285
+-98.88856587486809,SVRlinear,"{'regressor__C': 0.0001, 'regressor__kernel': 'linear', 'selecter__k': 88}",7.159974446918258
+-94.92626086707462,SVRlinear,"{'regressor__C': 0.001, 'regressor__kernel': 'linear', 'selecter__k': 88}",6.707814706295273
+-86.99440410438847,SVRlinear,"{'regressor__C': 0.01, 'regressor__kernel': 'linear', 'selecter__k': 88}",6.011586939958749
+-83.84259350682902,SVRlinear,"{'regressor__C': 0.10000000000000001, 'regressor__kernel': 'linear', 'selecter__k': 88}",7.2469874189237995
+-83.21029803671344,SVRlinear,"{'regressor__C': 1.0, 'regressor__kernel': 'linear', 'selecter__k': 88}",8.921030741085502
+-83.11736610077114,SVRlinear,"{'regressor__C': 10.0, 'regressor__kernel': 'linear', 'selecter__k': 88}",8.361007685185967
+-82.51109444060069,SVRlinear,"{'regressor__C': 100.0, 'regressor__kernel': 'linear', 'selecter__k': 88}",8.343809071887398
