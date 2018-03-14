@@ -160,7 +160,7 @@ def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names, k_array, mode, n_it
     return cls_acc_hps, trained_cls_list
 
 
-def save_tuning(tuning_all, trained_all):
+def save_tuning(tuning_all, trained_all, label):
     """
     Saving outpus of hp tuning to disk
     Called after tuning each classifier
@@ -168,21 +168,25 @@ def save_tuning(tuning_all, trained_all):
     Input:
     - tuning_all: pandas df with tuning results
     - trained_all: list of all classifiers trained on training data
+    - label: str to keep track of the different runs in the filename
     """
 
     # save tuning_all
-    tuning_all.to_csv(r'.\data_while_tuning\tuning_all.csv', index=False)
+    tuning_all.to_csv(r'.\data_while_tuning\tuning_all_' + label + '.csv', index=False)
 
     # save trained_all
     for i in np.arange(len(trained_all)):
-        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'classifiers_names'] + '.sav'
+        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'classifiers_names'] + '_' + label + '.sav'
         pickle.dump(trained_all[i], open(filename, 'wb'))
 
 
-def load_tuning():
+def load_tuning(label):
     """
     Loading outpus of hp tuning from disk
     Called to recover what was tuned and trained in previous sessions
+
+    Input:
+    - label: str to keep track of the different runs in the filename
 
     Output:
     - tuning_all: pandas df with tuning results
@@ -190,12 +194,12 @@ def load_tuning():
     """
 
     # load tuning_all
-    tuning_all = pd.read_csv(r'.\data_while_tuning\tuning_all.csv')
+    tuning_all = pd.read_csv(r'.\data_while_tuning\tuning_all_'+ label +'.csv')
 
     # load trained_all
     trained_all=[]
     for i in np.arange(len(tuning_all)):
-        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'classifiers_names'] + '.sav'
+        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'classifiers_names'] + '_'+ label +'.sav'
         loaded_model = pickle.load(open(filename, 'rb'))
         trained_all.append(loaded_model)
 

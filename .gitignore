@@ -18,3 +18,7 @@ data/extracted_features/eGeMAPSv01a_stimuli_splitted_distorted\.csv
 data/extracted_features/eGeMAPSv01a_stimuli_splitted\.csv
 
 regression/__pycache__/
+
+classification/figures/
+
+regression/figures/
