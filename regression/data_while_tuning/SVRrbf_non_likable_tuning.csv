@@ -1,0 +1,6 @@
+mean_acc_A,model,params,stdev_acc_A
+-59.066775391974964,SVRrbf,"{'regressor__C': 10.0, 'regressor__gamma': 0.01, 'regressor__kernel': 'rbf', 'selecter__k': 88}",7.294777968661059
+-47.887165008007436,SVRrbf,"{'regressor__C': 56.234132519034908, 'regressor__gamma': 0.01, 'regressor__kernel': 'rbf', 'selecter__k': 88}",5.512611148622883
+-46.68770714628737,SVRrbf,"{'regressor__C': 316.22776601683796, 'regressor__gamma': 0.01, 'regressor__kernel': 'rbf', 'selecter__k': 88}",6.102592077589546
+-47.17379193817932,SVRrbf,"{'regressor__C': 1778.2794100389228, 'regressor__gamma': 0.01, 'regressor__kernel': 'rbf', 'selecter__k': 88}",5.871911008914819
+-47.17379193817932,SVRrbf,"{'regressor__C': 10000.0, 'regressor__gamma': 0.01, 'regressor__kernel': 'rbf', 'selecter__k': 88}",5.871911008914819
