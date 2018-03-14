@@ -186,7 +186,7 @@ def save_tuning(tuning_all, trained_all, target_trait):
     Input:
     - tuning_all: pandas df with tuning results
     - trained_all: list of all regressors trained on training data
-    - target trait: name of the target speaker characteristic
+    - label: str to keep track of the different runs in the filename
     """
 
     # save tuning_all
@@ -202,6 +202,9 @@ def load_tuning(target_trait):
     """
     Loading outpus of hp tuning from disk
     Called to recover what was tuned and trained in previous sessions
+
+    Input:
+    - label: str to keep track of the different runs in the filename
 
     Output:
     - tuning_all: pandas df with tuning results
