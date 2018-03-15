@@ -1,0 +1,5 @@
+'warmth'
+'attractiveness'
+'compliance'
+'confidence'
+'maturity'
