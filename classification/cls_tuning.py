@@ -34,7 +34,7 @@ def summary_tuning(cname, search_result, filename):
     df.to_csv(filename, index=False)
 
 
-def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names, k_array, mode, n_iter):
+def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names, k_array, mode, n_iter=10):
     """
     Perform nested hyperparameter tuning with RandomizedSearchCV.
     Given training data splitted into A, B sets and for each classifier type:
@@ -49,7 +49,7 @@ def hp_tuner(AX, BX, Ay, By, get_cls_functions, feats_names, k_array, mode, n_it
     - feats_names: list of feature names, only needed for output
     - k_array: numpy array with values to try for SelectKBest features
     - mode: str indicating type of hyperparameter search: 'random' or 'grid'
-    - n_iter: number of iterations for random search (ignored if grid search)
+    - n_iter: number of iterations for random search (optional, default = 10, ignored if grid search)
 
     Output:
     - cls_acc_hps: pandas dataframe with:

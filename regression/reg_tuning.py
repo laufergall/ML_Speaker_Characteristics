@@ -35,7 +35,7 @@ def summary_tuning(cname, search_result, filename):
     df.to_csv(filename, index=False)
 
 
-def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_array, mode, n_iter=10):
+def hp_tuner(AX, BX, Ay, By, get_reg_functions, label, feats_names, k_array, mode, n_iter=10):
     """
     Perform nested hyperparameter tuning with RandomizedSearchCV.
     Given training data splitted into A, B sets and for each regressor type:
@@ -47,7 +47,7 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_arr
     - AX and BX: features of the train set, splitted
     - Ay and By: labels of the train set, splitted
     - get_reg_functions: list of functions tho get regressor and dict of hp to tune
-    - target trait: name of the target speaker characteristic
+    - label: str to keep track of the different runs in the filename
     - feats_names: list of feature names, only needed for output
     - k_array: numpy array with values to try for SelectKBest features
     - mode: str indicating type of hyperparameter search: 'random' or 'grid'
@@ -136,7 +136,7 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_arr
         # generate one csv file per regressor
         summary_tuning(regressors_names[i],
                        search_result,
-                       r'.\data_while_tuning\%s_%s_tuning.csv' % (regressors_names[i], target_trait))
+                       r'.\data_while_tuning\%s_%s_tuning.csv' % (regressors_names[i], label))
 
         # get selected features on set A (not if multioutput
         if Ay.ndim > 1: # multioutput (SelectKBest not supported)
@@ -178,7 +178,7 @@ def hp_tuner(AX, BX, Ay, By, get_reg_functions, target_trait, feats_names, k_arr
     return reg_acc_hps, trained_reg_list
 
 
-def save_tuning(tuning_all, trained_all, target_trait):
+def save_tuning(tuning_all, trained_all, label):
     """
     Saving outpus of hp tuning to disk
     Called after tuning each regressor
@@ -190,15 +190,15 @@ def save_tuning(tuning_all, trained_all, target_trait):
     """
 
     # save tuning_all
-    tuning_all.to_csv(r'.\data_while_tuning\tuning_all_'+ target_trait +'.csv', index=False)
+    tuning_all.to_csv(r'.\data_while_tuning\tuning_all_'+ label +'.csv', index=False)
 
     # save trained_all
     for i in np.arange(len(trained_all)):
-        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'regressors_names'] + '_' + target_trait + '.sav'
+        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'regressors_names'] + '_' + label + '.sav'
         pickle.dump(trained_all[i], open(filename, 'wb'))
 
 
-def load_tuning(target_trait):
+def load_tuning(label):
     """
     Loading outpus of hp tuning from disk
     Called to recover what was tuned and trained in previous sessions
@@ -212,12 +212,12 @@ def load_tuning(target_trait):
     """
 
     # load tuning_all
-    tuning_all = pd.read_csv(r'.\data_while_tuning\tuning_all_'+ target_trait +'.csv')
+    tuning_all = pd.read_csv(r'.\data_while_tuning\tuning_all_'+ label +'.csv')
 
     # load trained_all
     trained_all=[]
     for i in np.arange(len(tuning_all)):
-        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'regressors_names'] + '_'+ target_trait +'.sav'
+        filename = r'.\data_while_tuning\trained_' + tuning_all.loc[i, 'regressors_names'] + '_'+ label +'.sav'
         loaded_model = pickle.load(open(filename, 'rb'))
         trained_all.append(loaded_model)
 

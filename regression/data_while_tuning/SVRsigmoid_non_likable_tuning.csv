@@ -1,0 +1,4 @@
+mean_acc_A,model,params,stdev_acc_A
+-83.84260374663339,SVRsigmoid,"{'regressor__C': 1000.0, 'regressor__gamma': 0.0001, 'regressor__kernel': 'sigmoid', 'selecter__k': 88}",7.241480393345076
+-83.23299374468263,SVRsigmoid,"{'regressor__C': 3162.2776601683795, 'regressor__gamma': 0.0001, 'regressor__kernel': 'sigmoid', 'selecter__k': 88}",7.9817049484989955
+-83.15565677870153,SVRsigmoid,"{'regressor__C': 10000.0, 'regressor__gamma': 0.0001, 'regressor__kernel': 'sigmoid', 'selecter__k': 88}",8.997939934412397
