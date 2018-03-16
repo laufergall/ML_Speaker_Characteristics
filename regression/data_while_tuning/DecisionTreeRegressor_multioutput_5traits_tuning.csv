@@ -1,0 +1,19 @@
+mean_acc_A,model,params,stdev_acc_A
+-1.1198259002108126,DecisionTreeRegressor,{'regressor__estimator__max_depth': 2},0.059508437257113106
+-1.1110354349642284,DecisionTreeRegressor,{'regressor__estimator__max_depth': 3},0.05327373290501286
+-1.1000445691587508,DecisionTreeRegressor,{'regressor__estimator__max_depth': 4},0.05244245300890139
+-1.0978990737235372,DecisionTreeRegressor,{'regressor__estimator__max_depth': 5},0.06266287072043035
+-1.1272106717706976,DecisionTreeRegressor,{'regressor__estimator__max_depth': 6},0.059829954332626605
+-1.1492932145824861,DecisionTreeRegressor,{'regressor__estimator__max_depth': 7},0.07735119888236026
+-1.1995266984670658,DecisionTreeRegressor,{'regressor__estimator__max_depth': 8},0.07241030707915622
+-1.2559258609404318,DecisionTreeRegressor,{'regressor__estimator__max_depth': 9},0.07381657426313828
+-1.306960460458064,DecisionTreeRegressor,{'regressor__estimator__max_depth': 10},0.08357036870107784
+-1.3436314859292267,DecisionTreeRegressor,{'regressor__estimator__max_depth': 11},0.07602209945805236
+-1.3777607968211025,DecisionTreeRegressor,{'regressor__estimator__max_depth': 12},0.0677508718851165
+-1.443166163100229,DecisionTreeRegressor,{'regressor__estimator__max_depth': 13},0.08394201208724293
+-1.4430564881777965,DecisionTreeRegressor,{'regressor__estimator__max_depth': 14},0.10773999340495394
+-1.4670831836941516,DecisionTreeRegressor,{'regressor__estimator__max_depth': 15},0.07780970776313044
+-1.480427623762209,DecisionTreeRegressor,{'regressor__estimator__max_depth': 16},0.0768548200640834
+-1.4768704105126214,DecisionTreeRegressor,{'regressor__estimator__max_depth': 17},0.0697372947915577
+-1.503017135023844,DecisionTreeRegressor,{'regressor__estimator__max_depth': 18},0.07254969472134412
+-1.5011666959456136,DecisionTreeRegressor,{'regressor__estimator__max_depth': 19},0.06735755805222625

@@ -1,0 +1,11 @@
+mean_acc_A,model,params,stdev_acc_A
+-2.490235862869978,KerasRegressor,"{'selecter__k': 88, 'regressor__neurons': 160, 'regressor__learn_rate': 0.59999999999999987, 'regressor__epochs': 75, 'regressor__batch_size': 5}",1.2819794799758082
+-2.3696382738188153,KerasRegressor,"{'selecter__k': 88, 'regressor__neurons': 160, 'regressor__learn_rate': 0.49999999999999994, 'regressor__epochs': 100, 'regressor__batch_size': 5}",1.0254002072312751
+-2.3590853955540556,KerasRegressor,"{'selecter__k': 88, 'regressor__neurons': 40, 'regressor__learn_rate': 0.25, 'regressor__epochs': 75, 'regressor__batch_size': 5}",0.519968285355487
+-2.725735389131499,KerasRegressor,"{'selecter__k': 88, 'regressor__neurons': 40, 'regressor__learn_rate': 0.94999999999999973, 'regressor__epochs': 100, 'regressor__batch_size': 5}",0.9702979393413895
+-2.4459608904721213,KerasRegressor,"{'selecter__k': 88, 'regressor__neurons': 40, 'regressor__learn_rate': 0.89999999999999991, 'regressor__epochs': 50, 'regressor__batch_size': 10}",1.110332580460395
+-2.6221350716897014,KerasRegressor,"{'selecter__k': 88, 'regressor__neurons': 40, 'regressor__learn_rate': 0.84999999999999987, 'regressor__epochs': 75, 'regressor__batch_size': 5}",1.1309613163890073
+-2.5966423377501338,KerasRegressor,"{'selecter__k': 88, 'regressor__neurons': 160, 'regressor__learn_rate': 0.54999999999999993, 'regressor__epochs': 100, 'regressor__batch_size': 10}",1.8378022742102333
+-2.6550143995874573,KerasRegressor,"{'selecter__k': 88, 'regressor__neurons': 160, 'regressor__learn_rate': 0.25, 'regressor__epochs': 75, 'regressor__batch_size': 10}",1.7845990848505513
+-1.912809195858508,KerasRegressor,"{'selecter__k': 88, 'regressor__neurons': 160, 'regressor__learn_rate': 0.79999999999999982, 'regressor__epochs': 75, 'regressor__batch_size': 5}",0.3339771532476543
+-2.227017153884491,KerasRegressor,"{'selecter__k': 88, 'regressor__neurons': 80, 'regressor__learn_rate': 0.29999999999999999, 'regressor__epochs': 25, 'regressor__batch_size': 10}",0.5106097868127589
