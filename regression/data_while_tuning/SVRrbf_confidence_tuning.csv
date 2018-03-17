@@ -1,0 +1,21 @@
+mean_acc_A,model,params,stdev_acc_A
+-0.34304540349436574,SVRrbf,"{'selecter__k': 66, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.10000000000000001, 'regressor__C': 10.0}",0.04486231048125631
+-0.29028041277688427,SVRrbf,"{'selecter__k': 53, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.01, 'regressor__C': 100.0}",0.036518624169949894
+-0.2435192297478515,SVRrbf,"{'selecter__k': 77, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.01, 'regressor__C': 100.0}",0.019782178204692556
+-0.25011215104831697,SVRrbf,"{'selecter__k': 68, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.01, 'regressor__C': 10.0}",0.03106489758519347
+-0.4230117674090629,SVRrbf,"{'selecter__k': 87, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.10000000000000001, 'regressor__C': 10.0}",0.054446510094342135
+-0.24999230110118784,SVRrbf,"{'selecter__k': 65, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.01, 'regressor__C': 10.0}",0.02702374690832991
+-0.24671526967990104,SVRrbf,"{'selecter__k': 70, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.01, 'regressor__C': 10.0}",0.02713713773327555
+-0.3615706285703986,SVRrbf,"{'selecter__k': 70, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.10000000000000001, 'regressor__C': 1000.0}",0.04544843687698981
+-0.28686365057057506,SVRrbf,"{'selecter__k': 53, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.10000000000000001, 'regressor__C': 10.0}",0.03998327170033355
+-0.4112523594308937,SVRrbf,"{'selecter__k': 82, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.10000000000000001, 'regressor__C': 100.0}",0.05372975463011076
+-0.28396138641290575,SVRrbf,"{'selecter__k': 51, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.10000000000000001, 'regressor__C': 100.0}",0.040745219475206484
+-0.40149920629401586,SVRrbf,"{'selecter__k': 78, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.10000000000000001, 'regressor__C': 100.0}",0.04996812876368938
+-0.35161053462212255,SVRrbf,"{'selecter__k': 73, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.001, 'regressor__C': 100.0}",0.04989157113708681
+-0.37611195837744377,SVRrbf,"{'selecter__k': 51, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.001, 'regressor__C': 100.0}",0.059829998300124615
+-0.29003087219819956,SVRrbf,"{'selecter__k': 54, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.10000000000000001, 'regressor__C': 1000.0}",0.04347811130551073
+-0.24016059526256248,SVRrbf,"{'selecter__k': 83, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.01, 'regressor__C': 100.0}",0.020475579518515433
+-0.37116854683461786,SVRrbf,"{'selecter__k': 52, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.001, 'regressor__C': 100.0}",0.05759299037779572
+-0.37130593819437957,SVRrbf,"{'selecter__k': 86, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.001, 'regressor__C': 10.0}",0.03408395909186941
+-0.38009982050254243,SVRrbf,"{'selecter__k': 75, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.001, 'regressor__C': 10.0}",0.030197245652712118
+-0.28396138641290575,SVRrbf,"{'selecter__k': 51, 'regressor__kernel': 'rbf', 'regressor__gamma': 0.10000000000000001, 'regressor__C': 1000.0}",0.040745219475206484

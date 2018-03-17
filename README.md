@@ -4,11 +4,10 @@
 
 Still TODO:
 
-- Classification: evaluate on test data
-- regression
-- demo
-- clustering
-- recommender
+- feature engineering towards better cls and reg performance.
+- demo of predictive modeling
+- speaker clustering
+- recommender system proposing pleasant voices
 
 
 
