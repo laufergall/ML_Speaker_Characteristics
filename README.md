@@ -4,10 +4,12 @@
 
 Still TODO:
 
-- feature engineering towards better cls and reg performance.
+- feature engineering towards better cls and reg performance
 - demo of predictive modeling
 - speaker clustering
 - recommender system proposing pleasant voices
+
+
 
 
 
@@ -40,7 +42,7 @@ Taking advantage of the NSC signals' sampling frequency of 48 kHz, the influence
 
 
 
-## About the speech degradations  
+## About the telephone degradations  
 
 Speech degraded through [simulated](https://github.com/laufergall/ML_Speaker_Characteristics/tree/master/data/distortions) telecommunication channels with different parameters was employed as test data to evaluate the effects of degradations on classification and regression performance. 
 
@@ -55,13 +57,25 @@ My many thanks to Dr. Ramón Sánchez Iborra for the application of packet loss 
 
 
 
+## Classification and regression
+
+I am addressing the prediction of each of the 34 interpersonal speaker [characteristics](https://github.com/laufergall/Subjective_Speaker_Characteristics/blob/master/data/subjective_ratings/SC_Questionnaire.csv) (continuous numeric labels of the [NSC corpus](http://www.qu.tu-berlin.de/?id=nsc-corpus)). These characteristics are: 
+
+'non_likable', 'secure', 'attractive', 'unsympathetic', 'indecisive', 'unobtrusive', 'distant', 'bored', 'emotional', 'not_irritated', 'active', 'pleasant', 'characterless', 'sociable', 'relaxed', 'affectionate', 'dominant', 'unaffected', 'hearty', 'old', 'personal', 'calm', 'incompetent', 'ugly', 'friendly', 'masculine', 'submissive', 'indifferent', 'interesting', 'cynical', 'artificial', 'intelligent', 'childish', 'modest'.
+
+I also address the prediction of the 5 traits: 'warmth', 'attractiveness', 'confidence', 'compliance', and 'maturity'. These were obtained after [factor analysis](https://github.com/laufergall/Subjective_Speaker_Characteristics/tree/master/speaker_characteristics/factor_analysis) on the 34-dimensional ratings of speaker characteristics.
+
+As metrics for success, I consider the average per-class accuracy for classification (average of sensitivity and specificity), and the common RMSE (root mean squared error) for regression.
+
+
+
 ## Folder structure
 
 #### \data
 
 Contains subjective speaker and voice ratings, extracted speech features (see \feature_extraction) and speakers' i-vectors, and similarity matrices between speakers. 
 
-Besides, data generated from this repository's scripts is stored under this folder: pre-processed features, trained models, etc.
+Besides, the data generated from this repository's scripts are stored under this folder: pre-processed features, trained models, etc.
 
 #### \feature_extraction
 
@@ -69,15 +83,15 @@ Scripts for speech feature extraction [3] from the NSC speech files (not on this
 
 #### \exploratory_analysis
 
-Exploring subjective labels.
+Exploring subjective labels of speaker characteristics. 
 
 #### \classification
 
-Evaluating classification techniques for predictive modeling of user traits.
+Evaluating classification techniques for predictive modeling of speaker social characteristics.
 
 #### \regression
 
-Evaluating regression techniques for predictive modeling of user traits.
+Evaluating regression techniques for predictive modeling of speaker social characteristics.
 
 #### \demo
 
