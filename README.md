@@ -53,7 +53,7 @@ The degradations involved:
 * for each of the codecs a random packet loss rate was applied, indicating how frequently packets are lost in the transmission.
 * jitter conditions were also considered for each packet loss condition. 
 
-My many thanks to Dr. Ramón Sánchez Iborra for the application of packet loss and jitter conditions using the [FFmpeg](https://www.ffmpeg.org/) library.
+My many thanks to Dr. Ramón Sánchez Iborra (University of Murcia, Spain) for the application of packet loss and jitter conditions using the [FFmpeg](https://www.ffmpeg.org/) library.
 
 
 

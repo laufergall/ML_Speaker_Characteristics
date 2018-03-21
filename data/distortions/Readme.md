@@ -43,4 +43,16 @@ The degradations involved:
 - for each of the codecs a random packet loss rate was applied, indicating how frequently packets are lost in the transmission: 0%, 1%, 3%, 5%, and 10% were considered. 
 - jitter conditions (no jitter and 10ms jitter) were also considered for each packet loss condition. 
 
-My many thanks to Dr. Ramón Sánchez Iborra for the application of packet loss and jitter conditions using the [FFmpeg](https://www.ffmpeg.org/) library.
+My many thanks to Dr. Ramón Sánchez Iborra (University of Murcia, Spain) for the application of packet loss and jitter conditions using the [FFmpeg](https://www.ffmpeg.org/) library.
+
+
+
+### Details about the test-bench for jitter and packet loss
+
+By: Dr. Ramón Sánchez Iborra (University of Murcia, Spain)
+
+An emulation-based test-bench has been deployed for processing the clean audio samples, with the aim of introducing typical impairments suffered during the transmission of the audio signal through a packet-switched network. This emulation strategy permitted us to maintain this network-related negative effects under control for its subsequent analysis. 
+
+Concretely, we employed three different Linux-based virtual machines that assumed the role of i) transmitter, ii) receiver, and iii) intermediate network. The first elements (transmitter and receiver) made use of the *ffmpeg* tool in order to establish and UDP/RTP connection between them. In the transmitter side, the *ffmpeg* tool permitted to encode the original audio sources by using different codecs and configurations. At the other end, the receiver just stored the streamed flow without employing neither reordering techniques nor error-correction algorithms. 
+
+As aforementioned, the network impairments have been emulated by means of a third Linux-based virtual machine; in this case, the *traffic control* (tc) tool processed the crossing traffic introducing specific packet loss and jitter to the audio stream. 
