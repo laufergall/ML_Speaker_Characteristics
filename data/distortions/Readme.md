@@ -56,3 +56,7 @@ An emulation-based test-bench has been deployed for processing the clean audio s
 Concretely, we employed three different Linux-based virtual machines that assumed the role of i) transmitter, ii) receiver, and iii) intermediate network. The first elements (transmitter and receiver) made use of the *ffmpeg* tool in order to establish and UDP/RTP connection between them. In the transmitter side, the *ffmpeg* tool permitted to encode the original audio sources by using different codecs and configurations. At the other end, the receiver just stored the streamed flow without employing neither reordering techniques nor error-correction algorithms. 
 
 As aforementioned, the network impairments have been emulated by means of a third Linux-based virtual machine; in this case, the *traffic control* (tc) tool processed the crossing traffic introducing specific packet loss and jitter to the audio stream. 
+
+The use of virtual machines permitted us to keep the system under perfect control, avoiding undesirable extra latencies or packet loss in addition to those intentionally introduced by the network-emulation node.
+
+Figure "distortions_test-bench.png" depicts the test-bench configuration.
