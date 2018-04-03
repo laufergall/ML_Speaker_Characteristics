@@ -1,0 +1,389 @@
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, margin=2cm]{geometry}
+
+\usepackage{sectsty}% http://ctan.org/pkg/sectsty   %  remove boldface
+\allsectionsfont{\normalfont}  %  remove boldface
+
+% \renewcommand\labelitemi{--} % itemize with no bullet points
+
+\usepackage{titlesec} % space between sections
+\titlespacing*{\section}
+{0pt}{5.5ex plus 1ex minus .2ex}{0ex plus .2ex}
+\titlespacing*{\subsection}
+{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+
+\setlength{\parskip}{1em} % space between paragraphs
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\usepackage{graphicx} % Required for the inclusion of images
+
+\usepackage{authblk} % For affiliation
+
+\usepackage[usenames, dvipsnames]{color} % for comments
+\newcommand{\lfg}[1]{\textcolor{Bittersweet}{\textbf{#1}}}
+
+\usepackage{bibentry} % for citation in text
+
+\usepackage{subfig} % for subfigure
+\usepackage{caption}
+
+\usepackage[export]{adjustbox} % for vertical alignment figure interaction
+
+\usepackage{booktabs} % for toprule, bottomrule.. in table
+
+\renewcommand{\labelitemii}{$\star$} % for itemize second level
+
+\usepackage{dirtree} % for folder structure
+
+\usepackage{pdfpages} % for the appendix
+
+% \renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+
+% \usepackage{times} % use Times New Roman font
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Verification and Characterization of Users by Their Voices} % Title
+
+\author{Laura \textsc{Fern\'{a}ndez Gallardo}} % Author name
+
+\date{March 23, 2018} % Date for the report \today
+
+\begin{document}
+
+\maketitle % Insert the title, author and date
+
+\begin{abstract}
+	
+Modern human-computer interaction systems may not only be based on interpreting natural language to determine dialog strategies but also on detected speakers' identity and their interpersonal characteristics. The goal of this work is to automatically characterize users from their speech signals, i.e. to recognize their identity and personality traits (confidence, friendliness, competence, etc.) by the sound of their voices and manner of speaking. In addition, this work evaluates the influence of different transmission channels, which degrade the quality of speech signals, on subjective and on automatic speaker recognition and characterization. Auditory tests have been conducted to assess significant effects of speech bandwidth on perceptive speaker ratings, and predictive models have been tested with speech degraded through a range of telephone transmissions involving different bandwidths, codecs, and other distortions. The multiple findings of these investigations may motivate the development of future personalization schemes based on the detection of speaker characteristics and exposed to speech quality degradations.
+
+
+\end{abstract}
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1: Introduction
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+\subsection{Presentation}
+
+- In this presentation I am going through my work during the past few years. It focuses on the recognition of users' identity and of their social characteristics from their speech signals, that is, from the sound of their voices and the way they talk.
+
+- Have you ever worked with speech signals? (If not) Well, I then hope that by the end of my presentation you get a nice overview of what we can do with speech signals, how we can work with them and what information we can get from the talker.
+
+
+\subsection{Who I am}
+
+This is just a little bit about myself:
+
+\begin{itemize}
+	
+\item After I finished my Masters, I started my PhD on the topic of speaker recognition (recognition of users' identity based on voices). Collaboration between TU Berlin and University of Canberra, Australia. Funded by Deutsche Telekom.
+
+\item For my Postdoc: moved on to recognition of speakers' social characteristics. I wrote  a project proposal and got DFG - Deutsche Forschungsgemeinschaft funding.
+
+\end{itemize}
+
+\subsection{Global Outline}
+
+The general picture of my work can be depicted in a diagram like this:
+
+\begin{itemize}
+	
+\item We have a person who is talking (the speaker)
+
+\item At the other end, we have a listener, who tries to recognize the speaker's identity. He is comparing the voice that he is listing to to the voices he knows from memory. 
+
+\item We can of course perform this automatically, which is typical of biometric systems based on voice. The system's task is to detect whether the voice corresponds to the person the speaker claims to be, and it makes a decision to grant access to private information.
+
+\item In addition, humans can also perceive other speaker characteristics from the voice, such as speakers' personality. For example, whether the speaker is friendly, confident, mature, competent, and so on.
+
+\item And we can also perform this automatically, for example, in personalization applications. The goal here is not to recognize user's temporal emotions (like anger, happiness,...), but I rather focus on more stable speaker traits. You can see this as social attributes, or personality of talkers.
+ 
+\end{itemize}
+
+At this point, I also want to make clear that I am not concerned about recognizing the message or the words being spoken. In all cases, my focus is on the identity and personality characteristics, also conveyed in the voice sounds. However, neutral speech content needs to be controlled for not to bias the perception of users.
+
+Between the speaker and the listener, or between the speakers and the automatic systems, there is a telephone communication. Different artifacts of the voice transmission path are going to affect the quality of the signal at the receiver's end. For instance, channel bandwidth, codec, and packet loss can have a big effect on the perceived speech quality.
+
+This brings me to the main goal of my research: to evaluate the effects of telephone transmission on these four parts you see on the right. 
+
+\begin{itemize}
+\item My PhD concentrated on human and automatic speaker recognition (the two parts on the top). 
+
+\begin{itemize}
+	
+\item The motivation for this project was to understand whether and how speaker-specific voice components are affected by which parameters of telephone distortions. 
+
+\item One of my main contributions (we will see this later) was the demonstration of the benefits of enhanced, wideband channels, in contrast to narrowband communications - which motivates the deployment of this kind of network: Listeners were able to recognize voices more accurately and faster, and biometric speaker verification systems performed better when speech signals were transmitted through channels delivering good speech quality.
+
+\end{itemize}
+
+\item In a similar way, in my Postdoc, I examined how the telephone distortions affect the speaker characterization performance, on the subjective and on the automatic side. 
+
+\begin{itemize}
+	
+\item For instance, if speakers are perceived less agreeable because of the channel degradations, this can directly affect the listeners' quality of experience of the communication. We want communication networks that permit the perception of users as with clean speech (no communication artifacts).
+
+\item Speaker characterization techniques can be very interesting for user personalization in human-computer communication systems. For example, the system can adapt the dialog strategy depending on the recognized users' personality. In this case, we do not want the performance to be affected by telephone distortions - I am evaluate whether this would happen.
+
+\end{itemize}
+
+\end{itemize}
+
+I am going to stick to this outline throughout my presentation, and we are going to go through an overview of all parts. My intention is that you get a general idea of my work, so I will just present some representative experiments I conducted and their results without entering into much detail, and will leave that for the discussion part if there is interest from your side.
+
+If you have any questions or would like more clarification please feel free to interrupt me at any point.
+
+Let us then start by taking a deeper look into the kind of telephone degradations I am considering in my work.
+
+
+
+\subsection{Telephone Degradations}
+
+As you know, there are these bandwidths standardized in telephony. The difference is the range of voice frequencies that they can transmit. 
+
+We have the traditional narrowband (NB), which limits the speech signal to 300--3400~Hz. More recently, wideband (WB) channels have emerged, and they extend the upper limit to 7000~Hz (double), and the lower limit to 50~Hz: this has a large influence on perceived quality. An even more extended range of frequencies can be transmitted through super-wideband (SWB) channels, which deliver the best speech quality and are typically used for video-conferencing. WB and SWB can be found in VoIP, while NB is still predominant in the PSTN (public switched telephone network).
+
+We can find human voice components up to 20~KHz or beyond, yet the range of human hearing is limited to 20~kHz, and to 20~Hz on the lower end.
+
+The effect of bandwidth is illustrated in the following comparison. 
+
+- We can see the amplitude of the speech signal in the temporal domain and its spectrogram (frequency on the y axis). The lighter parts indicate higher energy regions. 
+
+- The signal on the top is a clean recording with 48 kHz sampling frequency - so, it has a bandwidth up to 24~kHz, and on the bottom we see the same speech degraded through a rather severe communication channel. In this example, the signal was transmitted through a narrowband bandwidth (that is why you do not see frequency components above 3400~Hz). The AMR-NB codec has been employed to compress and decompress the signal. Additionally, a random packet loss rate of 10\% has been applied, this means that, in the transmission, 10\% of the signal did not reach the receiver. And jitter of 10~ms was also applied, which means that there was network congestion and some packets arrive with delay. Here, we just treat all this as parameters affecting the signal quality.
+
+Let us listen to these signals.
+
+(...)
+
+Now you have a feeling of how these distortions are affecting the speech quality.
+
+All frequency components above 3400~Hz have been filtered out. A WB or SWB communication channel would have included more components that would have resulted in more natural speech and better intelligibility. The goal of my work is / has been to study how this influences speaker identification and characterization performances. There are no strong differences between listening to WB or to SWB speech, since human hearing presents greater resolution in the lower frequencies.
+
+
+%----------------------------------------------------------------------------------------
+%	PART 2: My PhD
+%----------------------------------------------------------------------------------------
+
+\section{My PhD}
+
+As I introduced before, my PhD focuses on speaker recognition affected by telephone distortions~\cite{my5}.
+
+\subsection{Human Speaker Recognition}
+
+Regarding human speaker recognition, I will just briefly say that I conducted several listening tests with speech stimuli that were degraded through different telephone conditions. 
+
+The task for the participants of these tests was to indicate who has spoken, or whether two signals correspond to the same speaker or not.
+
+Then, I examined the statistical significance of the results and: There is an improvement of WB over NB, but not of SWB. This might be due to the lack of speaker-discriminative frequency components added in SWB.
+
+\textit{My publications on human speaker recognition influenced by telephone transmissions: \cite{my1, my3, my4}}.
+
+\subsection{Automatic Speaker Verification}
+
+I think that automatic speaker verification (AVS) is more interesting for you.
+
+\subsubsection{Extracting Speech Features}
+
+First of all, I wanted to give you an idea of how speech is parametrized. This is a very simplified scheme for how to extract Mel-Frequency Cepstral Coefficients(MFCCs), very popular for speech and speaker recognition.
+
+It is important to note that the recorded speech needs to be sliced into frames of about 20~ms--30~ms, and typically with overlap of 10~ms. 
+
+(The selection of the frame width is a tradeoff between temporal and spectral resolution -> we want the window to be long enough to average over local signal fluctuations, but short enough not to average over adjacent speech sounds.)
+
+For each of the frames, a Fourier Transform is applied, and the mel-filterbank is applied to the power spectrum and then the coefficients are extracted. The Mel-scale aims to mimic the non-linear human ear perception of sounds (more resolution at lower frequencies). Typically, the first 10--12 MFCCs are retained.
+
+\subsubsection{ASV Evaluations}
+
+A typical biometric system for automatic speaker verification works like this:
+
+The user makes an identity claim and needs to read a given text or to talk freely.
+
+The system makes a comparison between the received speech signal and the model corresponding to the claimed identity, to decide whether it is the right speaker or an impostor. Of course, a model from each person has to be created beforehand from enrollment speech.
+
+In my PhD, I employed the state-of-the-art GMM-UBM, JFA, and i-vector systems (2014). The current state-of-the-art employs i-vectors and DNN for speaker verification.
+
+Before we go on, I would like to highlight the difficulty of training good speaker models with large datasets for my work. Unfortunately, there are not so many appropriate datasets that I can use. I need to start from clean - undistorted full-band speech and apply the different telephone distortions in a controlled manner. However, there are very few datasets with signals of sufficient sampling frequency. I need microphone speech with at least fs=32~kHz for simulating the SWB transmissions, yet most of databases contain NB degraded speech, since they were collected at the receiver end of a transmission. This has been the main limitation of my research.
+
+Still, I could find several databases recorded in clean conditions and pooled many speech segments to perform different experiments:
+
+One of the experiments with GMM-UBM employed a small dataset of clean speech sampled at 44.1~kHz. In this plot we can see the equal error rate (EER, the lower the better) across different degradation conditions. The EER is a performance metric, as you know, the value when false rejections and false acceptances are equal (this can be seen as a binary classification). I could show that there was an important EER reduction when we move from NB to WB, and from WB to SWB. This benefit was specially observed for female speech, since their voices have higher frequency components due to their shorter vocal tract compared to males.
+
+\textit{My publications on automatic speaker recognition influenced by telephone transmissions: \cite{my2, my6, my7, my8, my9}}.
+
+\subsection{My PhD's Contributions}
+
+Here are the main contributions of my PhD, divided into human and automatic speaker recognition~\cite{myBook} (German reports:~\cite{my13, my20}). 
+
+In both cases, there was an improvement in the transition to enhanced channels. Therefore, together with speech quality, speaker recognition can be considered as an additional criteria for the deployment of WB-capable networks and terminals~\cite{my10, my14, my15}. SWB offered an improvement on the automatic side, which was not observed for human speaker recognition.
+
+
+%----------------------------------------------------------------------------------------
+%	PART 3: My Postdoc
+%----------------------------------------------------------------------------------------
+
+\section{My Postdoc}
+
+When I started my Postdoc there was not suitable speech database available with clean speech and with the labels that I needed. So, I embarked myself into the task of designing and collecting a new database for my research.
+
+\subsection{New Appropriate Speech Database}
+
+300 speakers, that speak German as mother tongue, were recorded at our labs. The speakers were recorded in an acoustically-isolated room and we employed a high-quality microphone to record scripted and spontaneous speech. (I got great support from student workers who conducted the recording sessions). Then, I segmented and arranged all recorded files to prepare the release of this data to the scientific community. It is only available for research\footnote{The ISLRN of this corpus is 157-037-166-491-1. The data has been made available at the CLARIN repository: \texttt{hdl.handle.net/11022/1009-0000-0007-C05F-6} under the CLARIN ACA+BY+NC+NORED license (freely available for scientific research).}. I got very good feedback and some researchers are already using this data resource~\cite{my19, my29}.
+
+I conducted a series of listening tests to collect labels for the database in terms of speaker characteristics. A semantic differential questionnaire was presented, with antonyms at both ends of a continuous scale. You can see the list of all 34 questionnaire items on the right (German).
+
+The speech consisted on a dialog where speakers had to order a pizza (We listened to a start of one of these dialogs when I presented an example of telephone distortions). In this test, only clean speech was presented.
+
+In total, 114 listeners participated to label the whole database (300 speakers). I considered the mean of their ratings as ground-truth: perceptions of speaker characteristics.
+
+The 34-dimensional ratings were reduced by performing factor analysis to a smaller set of 5 dimensions (which I will call traits). These 5 traits are: warmth, attractiveness, confidence, compliance, maturity - and they can bee seen as perceptual dimensions of attributions that can be made by listening to speakers. Interestingly, the same names could be given to the male and to the female traits.
+
+The distribution of speakers is shown in this pairplot (blue = male, orange = female - there are more females in the database). The warmth and attractiveness traits are correlated, as well as compliance and confidence (negatively), and confidence and maturity (makes sense).
+
+I consider that warmth and attractiveness represent a space of positively and negatively perceived speakers. I have performed binary classification to discriminate between low and high WAAT speakers (we'll see this later).
+
+
+\subsection{Human Speaker Characterization}
+
+Let us go on by looking at how human perceptions of speakers can be affected by channel bandwidth.
+
+In another round of listening tests (with different participants), I collected the same ratings by presenting speech in NB and in WB, from just a subset of 20 ``extreme speakers". So, I got ratings to the 34 speaker characteristics in NB and in WB.
+
+Then, another group of listeners provided ratings of speech quality to the same stimuli. The presented continuous scale ranged from ``extremely bad" to ``ideal".
+
+% (backup slide) Here is the kind of data I got. There is a plot for males and another one for females. The y axis represents the mean opinion scores (MOS), which is just the mean of the ratings given to quality. The x axis representes the averaged ``likability", one of the 34 scales of the speaker characterics questionnaire. Each point corresponds to one speech stimulus, and is color-coded by speech bandwidth. We can already see that, for males, there is some tendency of perceiving the same speaker as more likable if the stimuli was presented in WB instead of NB. This is a bit less clear for female speech.
+
+With the data I got from these listening tests, I performed Spearman rank correlations between quality ratings and the ratings of every speaker characteristic, for males and for female separately (since they present different stereotypes). A strong correlation indicates that when a telephone channel provides better perceived speech quality, also higher ratings are given to that speaker characteristic. 
+
+For instance, we can see a strong correlation between perceived speech quality and ratings given to ``likable" for males (blue) and, to a lesser extent, to ``likable" for females (orange). The same can be observed for the ratings given to ``pleasant". There are some gender differences: with higher quality, males are perceived as more compliant while females as more cynical. Similarly, with higher quality, males are perceived as more modest and adult while females as more impudent and childish. For other speaker characteristics, males and females tend to be perceived in the same direction with speech of higher quality. 
+
+In this graph, the characteristics are presented as in the semantic differential questionnaire, with antonyms at each side.
+
+The speaker characteristics highlighted with channels providing better quality are:
+ 
+- For males: 
+
+\begin{itemize}
+	\item unobtrusive, characterful, sympathetic, likable 
+	\item pleasant, attractive, beautiful
+	\item impersonal, competent, calm, adult, decided, secure
+\end{itemize}
+
+- For females:
+
+\begin{itemize}
+	\item friendly, sympathetic, characterful
+	\item interested, emotional, active, young
+	\item impudent, competent, secure, decided, intelligent	
+\end{itemize}
+
+
+\textit{My publications on human speaker characterization:~\cite{my18, my21, my24, my25, my30}. Influence of telephone transmissions: \cite{my17, my34, my35}}.
+
+
+%----------------------------------------------------------------------------------------
+%	PART 4: My Postdoc: ongoing work
+%----------------------------------------------------------------------------------------
+
+\section{My Postdoc: ongoing work}
+
+At the moment I focus my work on machine learning for speaker characterization.
+
+\subsection{Automatic Speaker Characterization}
+
+
+\subsubsection{My Pipeline}
+
+Features: I work with the ``eGeMAPS" feature set, which has been shown to provide good results for emotion recognition tasks. A set of 88 parameters that describe frequency, energy, spectral and temporal aspects can be extracted from each speech segment. For that I employ the OpenSMILE tool.
+
+I used R and scikit-learn in python for data exploration and for building predictive models.
+
+Reminder: the targets I consider in my experiments are the 34 item ratings, or the 5 trait scores derived by applying factor analysis. I am addressing classification and regression problems with these key performance metrics.
+
+I use a pretty much standard pipeline for machine learning. I first split the data into train and test, and perform a nested hyperparameter tuning with the train set trying out different model families. Then, I evaluate the performance on the test set.
+
+The nested hyper-parameter tuning consists on: 
+
+\begin{itemize}
+	\item The train data is split into a set A and a set B (80\%--20\%). The test set was already hold out before.
+	\item For each model family, I perform a randomized or grid search of model hyperparameters with cross-validation.
+	\item The best model is chosen based on their performance on set B
+	\item Finally, the chosen model is trained with all trained data (A and B) and its performance is to be evaluated later on the test set. 
+\end{itemize}
+
+\subsubsection{Binary Classification (WAAT)}
+
+Here, I want to take a closer look at one of the relevant tasks I am addressing: the binary classification of high/low WAAT (warmth-attractiveness).
+
+I applied K-Means to cluster the speakers into 3 classes: low - mid - and high WAAT. I then dropped all speakers that belong to the mid cluster to address binary classification.
+
+Different classifiers were tuned and trained: Logistic Regression, Naive Bayes, K-Nearest Neighbors, Decision Tree, Random Forest, Support Vector Machines.
+
+In a real application we would just select the classifier that gave the best performance on the development set (B). Here, I evaluated all classifiers on the test set.
+
+I have plotted the average per-class accuracy over the different tuned classifiers. The blue line corresponds to the performance on the B set, and the orange line to the performance on the test set. Worst: Dummy, SVC poly. Best: SVC rbf, KNN.
+
+I have several test speech segments for each speaker. I performed majority voting with the decision (high/low WAAT) made for each of the segments to come up with the final decision for the speaker. The following plots represent again the WAAT space, with each circle corresponding to one speaker of the test set. They are blue if the decision was correct or red otherwise, and their diameter indicate the strength of the decision of majority voting. For instance, if 60\% of the speech segments were correctly classified and 40\% were incorrectly classified, then the circle is blue (correct final decision), and smaller than others corresponding to speakers for which all decisions of their speech segments were correct.
+
+Some mistakes have been made for speakers close to the mid WAAT region (red circles), for the SVC classifier (rbf kernel), with 80\% accuracy. This can be compared to a dummy classifier based on random guessing. All circles are smaller (less confidence in the decision) and more speakers are miss-classified (accuracy was 50\%).
+
+
+\subsubsection{Effects of Transmission Channels}
+
+Back to my pipeline: when I have performed experiments with degraded speech, I have trained my models with clean signals and evaluated the performance with degraded speech. This would represent an application where we have trained models with clean speech from existing datasets, and received degraded speech in production due to telephone transmissions. Again, the task is to classify speakers into high or low WAAT.
+
+In this figure we can observe the average per-class accuracy given by the SVC classifier with rbf kernel (the best model with clean speech) across different transmission bandwidths and codecs (in this case, packet loss = 0 and jitter = 0). The points joined with a line correspond to the same codec, with different bit rates. The performance with clean speech was 72\%. However, it drops to chance level with NB degradations. WB and SWB codecs tend to offer better performance, yet still far from that of clean speech. This seems to indicate that an application receiving telephone-transmitted speech would offer little performance compared to receiving clean speech. NB communications should be avoided.
+
+Still, I would like to perform further experiments where the performance with clean speech is higher and re-evaluate the effects of communication channels. Particularly, I want to look into feature engineering and selection before model tuning and evaluation.
+
+
+\subsection{My Postdoc's Contributions}
+
+The contributions of my Postdoc are summarized in this slide for human and automatic speaker characterization. I have created a new valuable language resource, very much needed in this research field. 
+
+I have derived the main traits of speaker attributes that can be perceived from voices, and related speaker characteristics to speech quality and to voice descriptions (not seen in this presentation).
+
+On the automatic side, I have explored the importance of features contributing to speaker characterization. I have written open-source code~\footnote{https://github.com/laufergall} with my pipeline to perform experiments in different configurations. Finally (still on-going) I am evaluating the speaker characterization performance given degraded test speech.
+
+%----------------------------------------------------------------------------------------
+%	PART 5: Summary
+%----------------------------------------------------------------------------------------
+
+\section{Summary}
+
+In this presentation we have seen the different parts of my research: 
+
+\begin{itemize}
+	\item The data I am working with: a new speech database labeled with speaker characteristics, released for the academic research community.
+	\item Effects of telephone distortions on human and automatic speaker recognition. There is a significant difference in performance between NB and WB speech - the importance of frequency components beyond 3400~Hz is manifested and the deployment of WB communications is motivated.
+	\item On the human speaker characterization side, speaker characteristics' perceptions have been explored via listening tests.
+	\item Machine learning experiments show the influence of telephone distortions on the automatic speaker characterization performance.
+	
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\bibliographystyle{apalike}
+
+\bibliography{my_publications}
+
+%----------------------------------------------------------------------------------------
+
+
+\end{document}
