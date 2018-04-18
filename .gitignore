@@ -3,6 +3,8 @@ feature_extraction/smile\.log
 
 classification/\.ipynb_checkpoints/
 
+classification/data_while_tuning\.sav
+
 regression/\.ipynb_checkpoints/
 
 exploratory_analysis/\.ipynb_checkpoints/
