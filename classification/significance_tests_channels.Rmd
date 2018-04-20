@@ -1,0 +1,51 @@
+---
+title: "Mc Nemar's test of statistical differences between voice degradations"
+author: "Laura Fernández Gallardo"
+date: "April 2018"
+output: 
+  github_document:
+  toc: true
+toc_depth: 3
+---
+  
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(root.dir = './')
+knitr::opts_chunk$set(fig.width=10, fig.height=5, dpi=150)
+```
+
+
+```{r echo=FALSE}
+
+# clear
+rm(list=ls())
+
+```
+
+```{r message=FALSE, warning=FALSE}
+
+# Libraries needed:
+
+
+``` 
+
+## Objectives
+
+To assess the effects of speech degradations on the perfromance of Random Forest classification and Support Vector Machine classification of WAAT.
+
+Classification was performed in [this notebook](https://github.com/laufergall/ML_Speaker_Characteristics/blob/master/classification/04_classification_degraded_speech.ipynb), from where classification predictions 'yt_spk_pred' were genderated for each classifier.
+
+
+Load predictions for each classifier.
+
+```{r echo=FALSE} 
+
+# setting paths and loading data
+setwd("D:/Users/fernandez.laura/Documents/Work/Projects_Github/ML_Speaker_Characteristics\classification")
+
+all_stimuli <- read.csv(paste0("../performance_channels/all_stimuli.csv"))
+
+```
+ 
