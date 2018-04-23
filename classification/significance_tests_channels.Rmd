@@ -1,11 +1,11 @@
 ---
-title: "Mc Nemar's test of statistical differences between voice degradations"
+title: "Binomial test of statistical differences between voice degradations"
 author: "Laura Fernández Gallardo"
 date: "April 2018"
 output: 
-  github_document:
-  toc: true
-toc_depth: 3
+    github_document:
+        toc: true
+        toc_depth: 3
 ---
   
 

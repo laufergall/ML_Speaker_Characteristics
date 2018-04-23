@@ -1,7 +1,15 @@
-Mc Nemar's test of statistical differences between voice degradations
+Binomial test of statistical differences between voice degradations
 ================
 Laura Fernández Gallardo
 April 2018
+
+-   [Objectives](#objectives)
+-   [Load predictions for each classifier](#load-predictions-for-each-classifier)
+-   [Load true classes](#load-true-classes)
+-   [Binomial tests](#binomial-tests)
+    -   [Performance over chance level](#performance-over-chance-level)
+    -   [Each pair of degradations](#each-pair-of-degradations)
+-   [Conclusions](#conclusions)
 
 ``` r
 # Libraries needed:
