@@ -284,17 +284,27 @@ combs_RF_SVC_sig_less <- combs_RF_SVC[combs_RF_SVC$pval_less < siglevel,]
 ```
 
 
+Print results of the significant tests for RF and for SCV classification. 
+
+Note that the condition on the left offers significantly higher performance than the condition on the right.
 
 ```{r}
-print('Codec on the left offers significantly higher performance than the codec on the right')
+
 
 print('Significant differences for RF classification:')
+
 cbind( as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='RandomForestClassifier',2]), as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='RandomForestClassifier',1]))
-cbind( as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='RandomForestClassifier',2]), as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='RandomForestClassifier',1]))
-print(' ')
+
+cbind( as.character(combs_RF_SVC_sig_greater[combs_RF_SVC_sig_greater$cls=='RandomForestClassifier',1]), as.character(combs_RF_SVC_sig_greater[combs_RF_SVC_sig_greater$cls=='RandomForestClassifier',2]))
+
+
 print('Significant differences for SVC classification:')
+
 cbind( as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='SVCrbf',2]), as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='SVCrbf',1]))
-cbind( as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='SVCrbf',2]), as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='SVCrbf',1]))
+
+cbind( as.character(combs_RF_SVC_sig_greater[combs_RF_SVC_sig_greater$cls=='SVCrbf',1]), as.character(combs_RF_SVC_sig_greater[combs_RF_SVC_sig_greater$cls=='SVCrbf',2]))
+
+
 ```
 
 

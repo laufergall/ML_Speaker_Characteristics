@@ -1,17 +1,5 @@
 # Predictive modeling for speaker characterization
 
-## Under construction!
-
-Still TODO:
-
-- feature engineering towards better cls and reg performance
-- demo of predictive modeling
-- speaker clustering
-- recommender system proposing pleasant voices
-
-
-
-
 
 ## Overview
 
@@ -111,6 +99,17 @@ Papers, slides, etc.
 
 
 
+## Future work
+
+- more feature engineering towards better cls and reg performance
+- DEMO of predictive modeling
+- speaker clustering
+- recommender system proposing pleasant voices
+
+
+
+
+
 ## Contributing
 
 You are welcome to contribute to this project in any way. Please feel free to fix any errors or send me any suggestion for improvement. If you work at a research institution, you can get the NSC speech files from [here](https://clarin.phonetik.uni-muenchen.de/BASRepository/index.php?target=Public/Corpora/NSC/NSC.1.php).
@@ -124,3 +123,7 @@ You are welcome to contribute to this project in any way. Please feel free to fi
 [2] L. Fernández Gallardo and B. Weiss, "The Nautilus Speaker Characterization Corpus: Speech Recordings and Labels of Speaker Characteristics and Voice Descriptions," in International Conference on Language Resources and Evaluation (LREC), 2018.
 
 [3] F. Eyben, K. R. Scherer, B. W. Schuller, J. Sundberg, E. André, C. Busso, L. Y. Devillers, J. Epps, P. Laukka, S. S. Narayanan, and K. P. Truong, "The Geneva Minimalistic Acoustic Parameter Set (GeMAPS) for Voice Research and Affective Computing," IEEE Transactions on Affective Computing, vol. 7, no. 2, pp. 190–202, 2016.
+
+
+
+See complete list of project publications [here](http://www.qu.tu-berlin.de/?id=lfernandez).

@@ -236,11 +236,9 @@ combs_RF_SVC_sig_greater <- combs_RF_SVC[combs_RF_SVC$pval_greater < siglevel,]
 combs_RF_SVC_sig_less <- combs_RF_SVC[combs_RF_SVC$pval_less < siglevel,]
 ```
 
-``` r
-print('Codec on the left offers significantly higher performance than the codec on the right')
-```
+Print results of the significant tests for RF and for SCV classification.
 
-    ## [1] "Codec on the left offers significantly higher performance than the codec on the right"
+Note that the condition on the left offers significantly higher performance than the condition on the right.
 
 ``` r
 print('Significant differences for RF classification:')
@@ -271,32 +269,25 @@ cbind( as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='RandomFore
     ## [16,] "SWB_Opus_32"   "WB_Speex_23_8"
 
 ``` r
-cbind( as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='RandomForestClassifier',2]), as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='RandomForestClassifier',1]))
+cbind( as.character(combs_RF_SVC_sig_greater[combs_RF_SVC_sig_greater$cls=='RandomForestClassifier',1]), as.character(combs_RF_SVC_sig_greater[combs_RF_SVC_sig_greater$cls=='RandomForestClassifier',2]))
 ```
 
-    ##       [,1]            [,2]            
-    ##  [1,] "NB_G7231_5_3"  "NB_G711_A_64"  
-    ##  [2,] "WB_AMRWB_6_6"  "NB_G711_A_64"  
-    ##  [3,] "WB_AMRWB+_12"  "NB_G711_A_64"  
-    ##  [4,] "SWB_G7221C_32" "NB_G711_A_64"  
-    ##  [5,] "SWB_EVS_24_4"  "NB_G711_A_64"  
-    ##  [6,] "SWB_Opus_32"   "NB_G711_A_64"  
-    ##  [7,] "WB_AMRWB+_12"  "NB_G7231_5_3"  
-    ##  [8,] "WB_AMRWB+_12"  "NB_GSMEFR_12_2"
-    ##  [9,] "SWB_Opus_32"   "NB_GSMEFR_12_2"
-    ## [10,] "WB_AMRWB+_12"  "NB_AMRNB_5_15" 
-    ## [11,] "WB_AMRWB+_12"  "NB_Speex_11"   
-    ## [12,] "SWB_Opus_32"   "NB_Speex_11"   
-    ## [13,] "WB_AMRWB+_12"  "WB_G722_64"    
-    ## [14,] "WB_AMRWB+_12"  "WB_AMRWB_6_6"  
-    ## [15,] "WB_AMRWB+_12"  "WB_Speex_23_8" 
-    ## [16,] "SWB_Opus_32"   "WB_Speex_23_8"
-
-``` r
-print(' ')
-```
-
-    ## [1] " "
+    ##       [,1]           [,2]            
+    ##  [1,] "Clean"        "NB_G711_A_64"  
+    ##  [2,] "Clean"        "NB_G7231_5_3"  
+    ##  [3,] "Clean"        "NB_GSMEFR_12_2"
+    ##  [4,] "Clean"        "NB_AMRNB_5_15" 
+    ##  [5,] "Clean"        "NB_Speex_11"   
+    ##  [6,] "Clean"        "WB_G722_64"    
+    ##  [7,] "Clean"        "WB_AMRWB_6_6"  
+    ##  [8,] "Clean"        "WB_Speex_23_8" 
+    ##  [9,] "Clean"        "SWB_G7221C_32" 
+    ## [10,] "Clean"        "SWB_EVS_24_4"  
+    ## [11,] "Clean"        "SWB_Opus_32"   
+    ## [12,] "NB_G7231_5_3" "NB_GSMEFR_12_2"
+    ## [13,] "WB_AMRWB+_12" "SWB_G7221C_32" 
+    ## [14,] "WB_AMRWB+_12" "SWB_EVS_24_4"  
+    ## [15,] "WB_AMRWB+_12" "SWB_Opus_32"
 
 ``` r
 print('Significant differences for SVC classification:')
@@ -343,42 +334,27 @@ cbind( as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='SVCrbf',2]
     ## [32,] "WB_AMRWB+_24"   "WB_Speex_23_8"
 
 ``` r
-cbind( as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='SVCrbf',2]), as.character(combs_RF_SVC_sig_less[combs_RF_SVC_sig_less$cls=='SVCrbf',1]))
+cbind( as.character(combs_RF_SVC_sig_greater[combs_RF_SVC_sig_greater$cls=='SVCrbf',1]), as.character(combs_RF_SVC_sig_greater[combs_RF_SVC_sig_greater$cls=='SVCrbf',2]))
 ```
 
     ##       [,1]             [,2]            
-    ##  [1,] "WB_AMRWB_14_25" "NB_G711_A_64"  
-    ##  [2,] "WB_Speex_23_8"  "NB_G711_A_64"  
-    ##  [3,] "WB_AMRWB+_24"   "NB_G711_A_64"  
-    ##  [4,] "SWB_G7221C_48"  "NB_G711_A_64"  
-    ##  [5,] "SWB_EVS_64"     "NB_G711_A_64"  
-    ##  [6,] "SWB_Opus_32"    "NB_G711_A_64"  
-    ##  [7,] "WB_AMRWB_14_25" "NB_G7231_5_3"  
-    ##  [8,] "WB_Speex_23_8"  "NB_G7231_5_3"  
-    ##  [9,] "WB_AMRWB+_24"   "NB_G7231_5_3"  
-    ## [10,] "SWB_G7221C_48"  "NB_G7231_5_3"  
-    ## [11,] "SWB_EVS_64"     "NB_G7231_5_3"  
-    ## [12,] "SWB_Opus_32"    "NB_G7231_5_3"  
-    ## [13,] "WB_AMRWB_14_25" "NB_GSMEFR_12_2"
-    ## [14,] "WB_Speex_23_8"  "NB_GSMEFR_12_2"
-    ## [15,] "WB_AMRWB+_24"   "NB_GSMEFR_12_2"
-    ## [16,] "SWB_G7221C_48"  "NB_GSMEFR_12_2"
-    ## [17,] "SWB_EVS_64"     "NB_GSMEFR_12_2"
-    ## [18,] "SWB_Opus_32"    "NB_GSMEFR_12_2"
-    ## [19,] "WB_AMRWB_14_25" "NB_AMRNB_4_75" 
-    ## [20,] "WB_Speex_23_8"  "NB_AMRNB_4_75" 
-    ## [21,] "WB_AMRWB+_24"   "NB_AMRNB_4_75" 
-    ## [22,] "SWB_G7221C_48"  "NB_AMRNB_4_75" 
-    ## [23,] "SWB_EVS_64"     "NB_AMRNB_4_75" 
-    ## [24,] "WB_AMRWB_14_25" "NB_Speex_2_15" 
-    ## [25,] "WB_Speex_23_8"  "NB_Speex_2_15" 
-    ## [26,] "WB_AMRWB+_24"   "NB_Speex_2_15" 
-    ## [27,] "SWB_G7221C_48"  "NB_Speex_2_15" 
-    ## [28,] "SWB_EVS_64"     "NB_Speex_2_15" 
-    ## [29,] "SWB_Opus_32"    "NB_Speex_2_15" 
-    ## [30,] "WB_AMRWB_14_25" "WB_G722_64"    
-    ## [31,] "WB_AMRWB+_24"   "WB_G722_64"    
-    ## [32,] "WB_AMRWB+_24"   "WB_Speex_23_8"
+    ##  [1,] "Clean"          "NB_G711_A_64"  
+    ##  [2,] "Clean"          "NB_G7231_5_3"  
+    ##  [3,] "Clean"          "NB_GSMEFR_12_2"
+    ##  [4,] "Clean"          "NB_AMRNB_4_75" 
+    ##  [5,] "Clean"          "NB_Speex_2_15" 
+    ##  [6,] "Clean"          "WB_G722_64"    
+    ##  [7,] "Clean"          "WB_AMRWB_14_25"
+    ##  [8,] "Clean"          "WB_Speex_23_8" 
+    ##  [9,] "Clean"          "SWB_G7221C_48" 
+    ## [10,] "Clean"          "SWB_EVS_64"    
+    ## [11,] "Clean"          "SWB_Opus_32"   
+    ## [12,] "WB_AMRWB_14_25" "WB_Speex_23_8" 
+    ## [13,] "WB_AMRWB_14_25" "SWB_EVS_64"    
+    ## [14,] "WB_AMRWB_14_25" "SWB_Opus_32"   
+    ## [15,] "WB_AMRWB+_24"   "SWB_G7221C_48" 
+    ## [16,] "WB_AMRWB+_24"   "SWB_EVS_64"    
+    ## [17,] "WB_AMRWB+_24"   "SWB_Opus_32"
 
 Conclusions
 -----------
