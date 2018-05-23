@@ -51,7 +51,7 @@ I am addressing the prediction of each of the 34 interpersonal speaker [characte
 
 'non_likable', 'secure', 'attractive', 'unsympathetic', 'indecisive', 'unobtrusive', 'distant', 'bored', 'emotional', 'not_irritated', 'active', 'pleasant', 'characterless', 'sociable', 'relaxed', 'affectionate', 'dominant', 'unaffected', 'hearty', 'old', 'personal', 'calm', 'incompetent', 'ugly', 'friendly', 'masculine', 'submissive', 'indifferent', 'interesting', 'cynical', 'artificial', 'intelligent', 'childish', 'modest'.
 
-I also address the prediction of the 5 traits: 'warmth', 'attractiveness', 'confidence', 'compliance', and 'maturity'. These were obtained after [factor analysis](https://github.com/laufergall/Subjective_Speaker_Characteristics/tree/master/speaker_characteristics/factor_analysis) on the 34-dimensional ratings of speaker characteristics.
+I also address the prediction of the 5 traits: 'warmth', 'attractiveness', 'confidence', 'compliance', and 'maturity'. These were obtained after [factor analysis](https://github.com/laufergall/Subjective_Speaker_Characteristics/tree/master/speaker_characteristics/factor_analysis) on the 34-dimensional ratings of speaker characteristics [2].
 
 As metrics for success, I consider the average per-class accuracy for classification (average of sensitivity and specificity), and the common RMSE (root mean squared error) for regression.
 
@@ -67,7 +67,7 @@ Besides, the data generated from this repository's scripts are stored under this
 
 #### \feature_extraction
 
-Scripts for speech feature extraction [3] from the NSC speech files (not on this repository) using the [OpenSMILE tool](https://audeering.com/technology/opensmile/) (not on this repository).
+Scripts for speech feature extraction [3] from the NSC speech files (not on this repository) using the [OpenSMILE tool](https://audeering.com/technology/opensmile/) (tool not on this repository).
 
 #### \exploratory_analysis
 
@@ -81,18 +81,6 @@ Evaluating classification techniques for predictive modeling of speaker social c
 
 Evaluating regression techniques for predictive modeling of speaker social characteristics.
 
-#### \demo
-
-Demonstrating the detection of users' interpersonal characteristics by employing the trained classification and regression models.
-
-#### \clustering
-
-Clustering users by their voices and examining the clusters' dominating characteristics.
-
-#### \recommender
-
-Given the subjective ratings of speaker likability and attractiveness (preferences for voices), similarities among raters, and similarities among speakers, generate recommended voices.
-
 #### \doc
 
 Papers, slides, etc.
@@ -101,10 +89,10 @@ Papers, slides, etc.
 
 ## Future work
 
-- more feature engineering towards better cls and reg performance
-- DEMO of predictive modeling
-- speaker clustering
-- recommender system proposing pleasant voices
+- More feature engineering towards better classification and regression performance. E.g. "bag of words", similarity as feature.
+- DEMO of predictive modeling: demonstrating the detection of users' interpersonal characteristics by employing the trained classification and regression models.
+- Speaker clustering: clustering users by their voices and examining the clusters' dominating characteristics.
+- Recommender system proposing pleasant voices: given the subjective ratings of speaker likability and attractiveness (preferences for voices), similarities among raters, and similarities among speakers, generate recommended voices.
 
 
 
@@ -112,7 +100,7 @@ Papers, slides, etc.
 
 ## Contributing
 
-You are welcome to contribute to this project in any way. Please feel free to fix any errors or send me any suggestion for improvement. If you work at a research institution, you can get the NSC speech files from [here](https://clarin.phonetik.uni-muenchen.de/BASRepository/index.php?target=Public/Corpora/NSC/NSC.1.php).
+You are welcome to contribute to this project in any way. Please feel free to fix any errors or send me any suggestion for improvement. If you work at a research institution, you can access the NSC speech files from [here](https://clarin.phonetik.uni-muenchen.de/BASRepository/index.php?target=Public/Corpora/NSC/NSC.1.php).
 
 
 
